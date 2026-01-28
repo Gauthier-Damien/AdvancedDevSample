@@ -1,4 +1,3 @@
-using Microsoft.OpenApi;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -15,6 +14,7 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     //User Swagger
+    app.UseSwagger();
     app.UseSwaggerUI();
 }
 app.UseHttpsRedirection();
@@ -22,5 +22,6 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
 
 app.Run();

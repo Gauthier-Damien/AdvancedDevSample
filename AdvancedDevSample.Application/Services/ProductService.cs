@@ -16,6 +16,6 @@ public class ProductService
 
         product.UpdatePrice(newPrice);
         
-        _repo.Save(product);
+        _repo.Save(product);   
     }
 }
