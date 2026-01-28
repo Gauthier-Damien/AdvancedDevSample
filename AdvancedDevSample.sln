@@ -21,6 +21,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvancedDevSample.Test", "A
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvancedDevSample.API", "AdvancedDevSample.API\AdvancedDevSample.API.csproj", "{64E2332D-0F9C-4B40-92DB-D0908AB67D8B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A9741373-6057-4137-BDB3-C775572C1355} = {A9741373-6057-4137-BDB3-C775572C1355}
+		{5B94F920-7743-4E27-BE96-E88AE68CE954} = {5B94F920-7743-4E27-BE96-E88AE68CE954}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
