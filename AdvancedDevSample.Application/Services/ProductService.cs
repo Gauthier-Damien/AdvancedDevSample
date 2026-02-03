@@ -1,3 +1,5 @@
+using AdvancedDevSample.Application.Exceptions;
+using AdvancedDevSample.Domain.Entities;
 using AdvancedDevSample.Domain.Interfaces.Products;
 
 namespace AdvancedDevSample.Application.Services;
@@ -17,5 +19,10 @@ public class ProductService
         product.UpdatePrice(newPrice);
         
         _repo.Save(product);   
+    }
+
+    private Product GetProduct(Guid productId)
+    {
+        return _repo.GetByID(productId) ?? throw new ApplicationServiceException("Product not found", System.Net.HttpStatusCode.NotFound);
     }
 }
