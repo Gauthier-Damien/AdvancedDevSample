@@ -1,11 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+    <!-- Ce fichier définit les dépendances et les configurations pour le projet AdvancedDevSample.Application -->
+
     <PropertyGroup>
+        <!-- Configuration de la version cible du framework .NET -->
         <TargetFramework>net9.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <!-- Références aux projets nécessaires pour l'application -->
     <ItemGroup>
       <ProjectReference Include="..\AdvancedDevSample.Domain\AdvancedDevSample.Domain.csproj" />
     </ItemGroup>
