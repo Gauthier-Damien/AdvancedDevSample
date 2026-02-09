@@ -1,0 +1,113 @@
+site_name: AdvancedDevSample - Documentation Technique
+site_description: Documentation technique du projet AdvancedDevSample - Architecture Clean Code
+site_author: Gautier
+site_url: https://yourdomain.com
+
+# Repository
+repo_name: AdvancedDevSample
+repo_url: https://github.com/yourusername/AdvancedDevSample
+
+# Theme configuration
+theme:
+  name: material
+  language: fr
+  palette:
+    # Light mode
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Passer en mode sombre
+    # Dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Passer en mode clair
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+    - content.code.copy
+    - content.code.annotate
+
+# Extensions
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+
+# Plugins
+plugins:
+  - search:
+      lang: fr
+  - glightbox
+
+# Navigation structure
+nav:
+  - Accueil: index.md
+  - Architecture:
+      - Vue d'ensemble: architecture/overview.md
+      - Domain: architecture/domain.md
+      - Application: architecture/application.md
+      - Infrastructure: architecture/infrastructure.md
+      - API: architecture/api.md
+  - API:
+      - Introduction: api/introduction.md
+      - Endpoints: api/endpoints.md
+      - Controllers: api/controllers.md
+      - Middlewares: api/middlewares.md
+  - Domain:
+      - Entités: domain/entities.md
+      - Value Objects: domain/value-objects.md
+      - Interfaces: domain/interfaces.md
+      - Exceptions: domain/exceptions.md
+  - Application:
+      - Services: application/services.md
+      - DTOs: application/dtos.md
+      - Exceptions: application/exceptions.md
+  - Infrastructure:
+      - Repositories: infrastructure/repositories.md
+      - Configuration: infrastructure/configuration.md
+  - Tests:
+      - Tests Unitaires: tests/unit-tests.md
+      - Tests d'Intégration: tests/integration-tests.md
+  - Développement:
+      - Installation: development/installation.md
+      - Configuration: development/configuration.md
+      - Bonnes Pratiques: development/best-practices.md
+
+# Extra
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/yourusername
+  generator: false
+
+# Copyright
+copyright: Copyright &copy; 2026 AdvancedDevSample
