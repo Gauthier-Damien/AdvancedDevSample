@@ -7,6 +7,23 @@ Application de gestion de catalogue produits développée avec une **architectur
 
 ---
 
+## 🌳 Branches du projet
+
+Ce projet utilise une organisation en branches pour séparer le code de la documentation :
+
+- **`master`** - Branche principale de production
+- **`Codding`** - Branche de développement du code
+- **`Docs`** - Branche dédiée à la documentation complète
+
+📚 **Pour accéder à la documentation complète**, basculez sur la branche `Docs` :
+```bash
+git checkout Docs
+cd Docs
+# Consultez README.md ou INDEX.md pour naviguer
+```
+
+---
+
 
 ## 🚀 Démarrage rapide
 
