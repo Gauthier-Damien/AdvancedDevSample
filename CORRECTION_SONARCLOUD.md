@@ -141,10 +141,60 @@ https://sonarcloud.io/project/overview?id=Gauthier-Damien_AdvancedDevSample
 
 ---
 
-**Date de correction :** 10 février 2026
-**Statut :** ✅ RÉSOLU - SonarCloud fonctionne correctement
-**Prochaine étape :** Consulter le dashboard et corriger les warnings détectés
+## ⚠️ NOUVELLE ERREUR DÉTECTÉE (10/02/2026 14:33)
+
+**Erreur :**
+```
+ERROR: You are running CI analysis while Automatic Analysis is enabled. 
+Please consider disabling one or the other.
+Post-processing failed. Exit code: 1
+```
+
+**Cause :**
+L'**Automatic Analysis** est activée sur SonarCloud ET l'analyse CI (GitHub Actions) tourne en même temps. SonarCloud n'autorise pas les deux simultanément.
+
+## ✅ SOLUTION : Désactiver l'Automatic Analysis
+
+### Étapes à suivre (2 minutes)
+
+1. **Aller sur SonarCloud**
+   - Ouvrir [https://sonarcloud.io/project/overview?id=Gauthier-Damien_AdvancedDevSample](https://sonarcloud.io/project/overview?id=Gauthier-Damien_AdvancedDevSample)
+
+2. **Accéder aux paramètres**
+   - Cliquer sur "Administration" (en bas à gauche)
+   - Sélectionner "Analysis Method"
+
+3. **Désactiver Automatic Analysis**
+   - Décocher "Automatic Analysis"
+   - Garder "GitHub Actions" activé
+   - Sauvegarder les modifications
+
+### Pourquoi ?
+
+| Mode | Description | Quand utiliser |
+|------|-------------|----------------|
+| **Automatic Analysis** | SonarCloud analyse automatiquement le code à chaque push (sans configuration) | Pour des projets simples sans CI/CD |
+| **CI-based Analysis** | Analyse via GitHub Actions/Jenkins/etc. (avec configuration) | Pour des projets professionnels avec CI/CD ✅ |
+
+**Nous utilisons GitHub Actions** → Il faut désactiver Automatic Analysis
+
+### Après la désactivation
+
+Le prochain push déclenchera :
+- ✅ GitHub Actions workflow
+- ✅ Analyse SonarCloud via CI
+- ✅ Envoi des résultats au dashboard
+- ✅ Mise à jour des badges
 
 ---
 
-*Les emails d'erreur devraient maintenant s'arrêter. L'analyse se termine avec succès.* ✅
+**Date de correction :** 10 février 2026
+**Statut :** ⚠️ ACTION REQUISE - Désactiver Automatic Analysis sur SonarCloud
+**Prochaine étape :** 
+1. Désactiver Automatic Analysis (voir ci-dessus)
+2. Push un commit pour déclencher une nouvelle analyse
+3. Vérifier que l'analyse réussit
+
+---
+
+*Une fois l'Automatic Analysis désactivée, les analyses fonctionneront correctement.* ✅
