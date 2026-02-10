@@ -67,6 +67,19 @@ namespace AdvancedDevSample.Domain.ValueObjects
             return HashCode.Combine(AmountExcludingTax, VATRate);
         }
 
+        public static bool operator ==(Price? left, Price? right)
+        {
+            if (left is null && right is null)
+                return true;
+            if (left is null || right is null)
+                return false;
+            return left.Equals(right);
+        }
+
+        public static bool operator !=(Price? left, Price? right)
+        {
+            return !(left == right);
+        }
 
         public override string ToString()
         {

@@ -1,5 +1,6 @@
 using AdvancedDevSample.Domain.Entities;
 using AdvancedDevSample.Domain.Interfaces.Products;
+using System.Collections.Concurrent;
 
 namespace AdvancedDevSample.Infrastructure.Repositories
 {
@@ -9,8 +10,8 @@ namespace AdvancedDevSample.Infrastructure.Repositories
     /// </summary>
     public class EfProductRepository : IProductRepository
     {
-        // Stockage InMemory - simulation de base de données
-        private static readonly Dictionary<Guid, Product> _products = new();
+        // Stockage InMemory - simulation de base de données (thread-safe)
+        private static readonly ConcurrentDictionary<Guid, Product> _products = new();
 
         public Product? GetByID(Guid id)
         {

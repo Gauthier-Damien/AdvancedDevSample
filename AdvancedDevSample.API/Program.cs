@@ -1,3 +1,4 @@
+using AdvancedDevSample.API.Middlewares;
 using AdvancedDevSample.Application.Services;
 using AdvancedDevSample.Domain.Interfaces.Products;
 using AdvancedDevSample.Domain.Interfaces.Suppliers;

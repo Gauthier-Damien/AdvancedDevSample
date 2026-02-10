@@ -1,4 +1,5 @@
 using AdvancedDevSample.Domain.Exceptions;
+using System.Text.RegularExpressions;
 
 namespace AdvancedDevSample.Domain.Entities
 {
@@ -67,6 +68,13 @@ namespace AdvancedDevSample.Domain.Entities
         public void SetActive(bool isActive)
         {
             IsActive = isActive;
+        }
+
+        private static bool IsValidEmail(string email)
+        {
+            // Expression régulière pour valider un email
+            var emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            return Regex.IsMatch(email, emailPattern);
         }
     }
 }

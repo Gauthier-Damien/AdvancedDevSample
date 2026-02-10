@@ -1,5 +1,6 @@
 using AdvancedDevSample.Domain.Entities;
 using AdvancedDevSample.Domain.Interfaces.Suppliers;
+using System.Collections.Concurrent;
 
 namespace AdvancedDevSample.Infrastructure.Repositories
 {
@@ -8,7 +9,7 @@ namespace AdvancedDevSample.Infrastructure.Repositories
     /// </summary>
     public class EfSupplierRepository : ISupplierRepository
     {
-        private static readonly Dictionary<Guid, Supplier> _suppliers = new();
+        private static readonly ConcurrentDictionary<Guid, Supplier> _suppliers = new();
 
         public Supplier? GetByID(Guid id)
         {

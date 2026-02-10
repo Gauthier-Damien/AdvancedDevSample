@@ -362,7 +362,7 @@ public class OrderTests
         var order = new Order(Guid.NewGuid(), "123 Main Street");
 
 
-        Assert.Matches(@"^ORD-\d{8}-\d{4}$", order.OrderNumber);
+        Assert.Matches(@"^ORD-\d{8}-\d{4}-[a-f0-9]{6}$", order.OrderNumber);
     }
 
     [Fact]

@@ -1,5 +1,6 @@
 using AdvancedDevSample.Domain.Entities;
 using AdvancedDevSample.Domain.Interfaces.Orders;
+using System.Collections.Concurrent;
 
 namespace AdvancedDevSample.Infrastructure.Repositories
 {
@@ -8,7 +9,7 @@ namespace AdvancedDevSample.Infrastructure.Repositories
     /// </summary>
     public class EfOrderRepository : IOrderRepository
     {
-        private static readonly Dictionary<Guid, Order> _orders = new();
+        private static readonly ConcurrentDictionary<Guid, Order> _orders = new();
 
         public Order? GetByID(Guid id)
         {

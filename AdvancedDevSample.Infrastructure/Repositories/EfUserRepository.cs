@@ -1,5 +1,6 @@
 using AdvancedDevSample.Domain.Entities;
 using AdvancedDevSample.Domain.Interfaces.Users;
+using System.Collections.Concurrent;
 
 namespace AdvancedDevSample.Infrastructure.Repositories
 {
@@ -8,7 +9,7 @@ namespace AdvancedDevSample.Infrastructure.Repositories
     /// </summary>
     public class EfUserRepository : IUserRepository
     {
-        private static readonly Dictionary<Guid, User> _users = new();
+        private static readonly ConcurrentDictionary<Guid, User> _users = new();
 
         public User? GetByID(Guid id)
         {
