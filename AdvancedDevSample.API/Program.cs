@@ -4,6 +4,7 @@ using AdvancedDevSample.Domain.Interfaces.Products;
 using AdvancedDevSample.Domain.Interfaces.Suppliers;
 using AdvancedDevSample.Domain.Interfaces.Users;
 using AdvancedDevSample.Domain.Interfaces.Orders;
+using AdvancedDevSample.Domain.Interfaces.Auth;
 using AdvancedDevSample.Infrastructure.Repositories;
 
 // Point d'entrée principal de l'application ASP.NET Core.
@@ -34,6 +35,7 @@ builder.Services.AddScoped<OrderService>();
 
 // Enregistrement des repositories d'infrastructure (pattern Repository)
 // Couplage faible : interfaces du Domain, implémentations dans Infrastructure
+builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 builder.Services.AddScoped<IProductRepository, EfProductRepository>();
 builder.Services.AddScoped<ISupplierRepository, EfSupplierRepository>();
 builder.Services.AddScoped<IUserRepository, EfUserRepository>();
@@ -41,18 +43,42 @@ builder.Services.AddScoped<IOrderRepository, EfOrderRepository>();
 
 var app = builder.Build();
 
+// Seed des utilisateurs de démo en développement
+if (app.Environment.IsDevelopment())
+{
+    using var scope = app.Services.CreateScope();
+    var authRepo = scope.ServiceProvider.GetRequiredService<IAuthRepository>();
+    
+    authRepo.SeedUser("demo", "demo123", "Student");
+    authRepo.SeedUser("admin", "admin123", "Admin");
+    
+    Console.WriteLine("Comptes de demo crees automatiquement:");
+    Console.WriteLine("   Student: demo / demo123");
+    Console.WriteLine("   Admin: admin / admin123");
+}
+
+// Enregistrement du middleware de gestion centralisée des exceptions
+app.UseMiddleware<ExceptionHandlingMiddleware>();
+
 // Configuration du pipeline HTTP : ordre d'exécution des middlewares
 if (app.Environment.IsDevelopment())
 {
     // Swagger uniquement en développement pour des raisons de sécurité
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "AdvancedDevSample API v1");
+        c.DocumentTitle = "AdvancedDevSample API - Documentation";
+    });
 }
 
 // Redirection automatique HTTP vers HTTPS
 app.UseHttpsRedirection();
 
-// Middleware d'autorisation (même si non implémenté, conservé pour évolution future)
+// Authentification JWT (doit être avant UseAuthorization)
+app.UseAuthentication();
+
+// Middleware d'autorisation
 app.UseAuthorization();
 
 // Enregistrement des routes des contrôleurs
