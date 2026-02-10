@@ -1,0 +1,107 @@
+site_name: AdvancedDevSample - Documentation
+site_description: Documentation complète du projet AdvancedDevSample - Clean Architecture avec .NET 9.0
+site_author: Gauthier Damien
+site_url: https://github.com/Gauthier-Damien/AdvancedDevSample
+
+repo_name: Gauthier-Damien/AdvancedDevSample
+repo_url: https://github.com/Gauthier-Damien/AdvancedDevSample
+edit_uri: edit/Docs/docs/
+
+theme:
+  name: material
+  language: fr
+  palette:
+    - scheme: default
+      primary: deep purple
+      accent: purple
+      toggle:
+        icon: material/brightness-7
+        name: Mode sombre
+    - scheme: slate
+      primary: deep purple
+      accent: purple
+      toggle:
+        icon: material/brightness-4
+        name: Mode clair
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+
+plugins:
+  - search:
+      lang: fr
+  - mermaid2
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - Accueil: index.md
+  - Démarrage Rapide:
+    - Installation: getting-started/installation.md
+    - Premier démarrage: getting-started/quick-start.md
+    - Tests avec Swagger: getting-started/swagger-testing.md
+  - Architecture:
+    - Vue d'ensemble: architecture/overview.md
+    - Clean Architecture: architecture/clean-architecture.md
+    - Couche Domain: architecture/domain-layer.md
+    - Couche Application: architecture/application-layer.md
+    - Couche Infrastructure: architecture/infrastructure-layer.md
+    - Couche API: architecture/api-layer.md
+  - API Documentation:
+    - Authentification: api/authentication.md
+    - Endpoints Products: api/products.md
+    - Endpoints Orders: api/orders.md
+    - Endpoints Users: api/users.md
+    - Endpoints Suppliers: api/suppliers.md
+  - Guides:
+    - Tests JWT: guides/jwt-testing.md
+    - Tests unitaires: guides/unit-testing.md
+    - Tests d'intégration: guides/integration-testing.md
+    - Contribution: guides/contributing.md
+  - Qualité & CI/CD:
+    - SonarCloud: quality/sonarcloud.md
+    - GitHub Actions: quality/github-actions.md
+    - Review SonarQube: quality/sonarqube-review.md
+  - Audits:
+    - Audit complet 2026: audits/audit-2026.md
+    - Synthèse: audits/synthese.md
+    - Historique: audits/history.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Gauthier-Damien/AdvancedDevSample
+  version:
+    provider: mike
