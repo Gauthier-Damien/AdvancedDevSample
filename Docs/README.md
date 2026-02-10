@@ -56,14 +56,39 @@ Le projet utilise JWT (JSON Web Tokens) pour l'authentification :
 - Support des rôles (Student, Admin)
 - Comptes de démo pré-configurés
 
+## 📐 Architecture et Standards
+
+8. **[ARCHITECTURE.md](./ARCHITECTURE.md)**
+   - Description détaillée de l'architecture du projet
+   - Structure en couches et principes appliqués
+   - Patterns de conception utilisés
+
+9. **[CONTRIBUTING.md](./CONTRIBUTING.md)**
+   - Guide de contribution au projet
+   - Standards de code et conventions
+   - Processus de développement
+
+10. **[CHANGELOG.md](./CHANGELOG.md)**
+    - Historique des modifications du projet
+    - Versions et fonctionnalités ajoutées
+
+11. **[API_DOCUMENTATION.md](./API_DOCUMENTATION.md)**
+    - Documentation détaillée des endpoints de l'API
+    - Exemples de requêtes et réponses
+    - Guide d'utilisation avec Swagger
+
+12. **[ORGANISATION.md](./ORGANISATION.md)**
+    - Organisation de la branche Docs
+    - Workflow et standards de documentation
+
 ## 📝 Documentation à venir
 
 Cette section sera complétée avec :
-- Documentation de l'API (endpoints, paramètres, réponses)
-- Guide d'utilisation pour les développeurs
-- Guide de déploiement
-- Diagrammes d'architecture
-- Documentation des tests
+- Guide de déploiement complet
+- Diagrammes UML et d'architecture visuelle
+- Documentation complète des tests
+- Tutoriels vidéo (optionnel)
+- FAQ (Foire Aux Questions)
 
 ## 🚀 Démarrage rapide
 
