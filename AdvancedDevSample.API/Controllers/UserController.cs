@@ -27,7 +27,7 @@ namespace AdvancedDevSample.API.Controllers
         /// <returns>Liste de tous les utilisateurs.</returns>
         /// <response code="200">Liste récupérée avec succès</response>
         [HttpGet]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(IEnumerable<UserResponse>), StatusCodes.Status200OK)]
         public IActionResult GetAllUsers()
         {
             var users = _userService.GetAllUsers();
@@ -42,7 +42,7 @@ namespace AdvancedDevSample.API.Controllers
         /// <response code="200">Utilisateur trouvé</response>
         /// <response code="404">Utilisateur non trouvé</response>
         [HttpGet("{id}")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(UserResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public IActionResult GetUserById(Guid id)
         {
@@ -58,7 +58,7 @@ namespace AdvancedDevSample.API.Controllers
         /// <response code="201">Utilisateur créé avec succès</response>
         /// <response code="400">Données invalides</response>
         [HttpPost]
-        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(UserResponse), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult CreateUser([FromBody] CreateUserRequest request)
         {
@@ -76,7 +76,7 @@ namespace AdvancedDevSample.API.Controllers
         /// <response code="404">Utilisateur non trouvé</response>
         /// <response code="400">Données invalides</response>
         [HttpPut("{id}")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(UserResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult UpdateUser(Guid id, [FromBody] UpdateUserRequest request)

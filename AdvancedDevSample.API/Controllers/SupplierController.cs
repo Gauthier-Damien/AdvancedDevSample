@@ -27,7 +27,7 @@ namespace AdvancedDevSample.API.Controllers
         /// <returns>Liste de tous les fournisseurs.</returns>
         /// <response code="200">Liste récupérée avec succès</response>
         [HttpGet]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(IEnumerable<SupplierResponse>), StatusCodes.Status200OK)]
         public IActionResult GetAllSuppliers()
         {
             var suppliers = _supplierService.GetAllSuppliers();
@@ -42,7 +42,7 @@ namespace AdvancedDevSample.API.Controllers
         /// <response code="200">Fournisseur trouvé</response>
         /// <response code="404">Fournisseur non trouvé</response>
         [HttpGet("{id}")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(SupplierResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public IActionResult GetSupplierById(Guid id)
         {
@@ -58,7 +58,7 @@ namespace AdvancedDevSample.API.Controllers
         /// <response code="201">Fournisseur créé avec succès</response>
         /// <response code="400">Données invalides</response>
         [HttpPost]
-        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(SupplierResponse), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult CreateSupplier([FromBody] CreateSupplierRequest request)
         {
@@ -76,7 +76,7 @@ namespace AdvancedDevSample.API.Controllers
         /// <response code="404">Fournisseur non trouvé</response>
         /// <response code="400">Données invalides</response>
         [HttpPut("{id}")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(SupplierResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult UpdateSupplier(Guid id, [FromBody] UpdateSupplierRequest request)
