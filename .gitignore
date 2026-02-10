@@ -3,19 +3,6 @@ obj/
 /packages/
 riderModule.iml
 /_ReSharper.Caches/
-
-# MkDocs - Ne pas commiter les fichiers générés
-site/
-.cache/
-
-# Python
-__pycache__/
-*.py[cod]
-.Python
-bin/
-obj/
-/packages/
-riderModule.iml
-/_ReSharper.Caches/
 .idea/
 .vs/
+
