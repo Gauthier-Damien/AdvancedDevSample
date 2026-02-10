@@ -1,11 +1,15 @@
 site_name: AdvancedDevSample - Documentation Technique
 site_description: Documentation technique du projet AdvancedDevSample - Architecture Clean Code
 site_author: Gautier
-site_url: https://yourdomain.com
+site_url: https://Gauthier-Damien.github.io/AdvancedDevSample/
 
 # Repository
 repo_name: AdvancedDevSample
-repo_url: https://github.com/yourusername/AdvancedDevSample
+repo_url: https://github.com/Gauthier-Damien/AdvancedDevSample
+
+# Directories
+docs_dir: Docs
+site_dir: site
 
 # Theme configuration
 theme:
