@@ -155,12 +155,18 @@ dotnet test AdvancedDevSample.Test/AdvancedDevSample.Test.csproj
 
 [![.NET](https://img.shields.io/badge/.NET-9.0-purple)](https://dotnet.microsoft.com/)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![Build and Test](https://github.com/Gauthier-Damien/AdvancedDevSample/actions/workflows/build.yml/badge.svg)](https://github.com/Gauthier-Damien/AdvancedDevSample/actions/workflows/build.yml)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Gauthier-Damien_AdvancedDevSample&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Gauthier-Damien_AdvancedDevSample)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Gauthier-Damien_AdvancedDevSample&metric=coverage)](https://sonarcloud.io/summary/new_code?id=Gauthier-Damien_AdvancedDevSample)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=Gauthier-Damien_AdvancedDevSample&metric=bugs)](https://sonarcloud.io/summary/new_code?id=Gauthier-Damien_AdvancedDevSample)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=Gauthier-Damien_AdvancedDevSample&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=Gauthier-Damien_AdvancedDevSample)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=Gauthier-Damien_AdvancedDevSample&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=Gauthier-Damien_AdvancedDevSample)
 
 Application de gestion de catalogue produits développée avec une **architecture Clean Code** et les principes **Domain-Driven Design (DDD)**.
 
 ---
 
-## 🚀 Démarrage rapide
+## 🌳 Branches du projet
 
 ### Prérequis
 
