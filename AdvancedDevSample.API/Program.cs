@@ -40,7 +40,7 @@ builder.Services.AddScoped<IOrderRepository, EfOrderRepository>();
 
 var app = builder.Build();
 
-// Configuration du pipeline HTTP - ordre d'exécution des middlewares
+// Configuration du pipeline HTTP : ordre d'exécution des middlewares
 if (app.Environment.IsDevelopment())
 {
     // Swagger uniquement en développement pour des raisons de sécurité
@@ -58,4 +58,4 @@ app.UseAuthorization();
 app.MapControllers();
 
 // Démarrage de l'application
-app.Run();
+await app.RunAsync();
