@@ -9,6 +9,8 @@ namespace AdvancedDevSample.Domain.Entities
     /// </summary>
     public class Order
     {
+        private static readonly Random _random = new();
+
         public Guid Id { get; private set; }
         public string OrderNumber { get; private set; }
         public DateTime OrderDate { get; private set; }
@@ -144,8 +146,9 @@ namespace AdvancedDevSample.Domain.Entities
         private static string GenerateOrderNumber()
         {
             var date = DateTime.UtcNow;
-            var random = new Random().Next(1000, 9999);
-            return $"ORD-{date:yyyyMMdd}-{random}";
+            var random = _random.Next(1000, 9999);
+            var guid = Guid.NewGuid().ToString("N")[..6];
+            return $"ORD-{date:yyyyMMdd}-{random}-{guid}";
         }
     }
 

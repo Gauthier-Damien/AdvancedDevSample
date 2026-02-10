@@ -5,7 +5,7 @@ namespace AdvancedDevSample.Domain.ValueObjects
     /// Immutable : toute modification retourne une nouvelle instance.
     /// Invariant : le montant HT doit être strictement positif.
     /// </summary>
-    public class Price
+    public sealed class Price : IEquatable<Price>
     {
         public decimal AmountExcludingTax { get; }
         public decimal VATRate { get; }
@@ -48,13 +48,18 @@ namespace AdvancedDevSample.Domain.ValueObjects
         /// <summary>
         /// Égalité basée sur les valeurs (Value Object pattern).
         /// </summary>
-        public override bool Equals(object? obj)
+        public bool Equals(Price? other)
         {
-            if (obj is not Price other)
+            if (other is null)
                 return false;
 
             return AmountExcludingTax == other.AmountExcludingTax 
                    && VATRate == other.VATRate;
+        }
+
+        public override bool Equals(object? obj)
+        {
+            return Equals(obj as Price);
         }
 
         public override int GetHashCode()
@@ -64,8 +69,10 @@ namespace AdvancedDevSample.Domain.ValueObjects
 
         public static bool operator ==(Price? left, Price? right)
         {
-            if (left is null && right is null) return true;
-            if (left is null || right is null) return false;
+            if (left is null && right is null)
+                return true;
+            if (left is null || right is null)
+                return false;
             return left.Equals(right);
         }
 

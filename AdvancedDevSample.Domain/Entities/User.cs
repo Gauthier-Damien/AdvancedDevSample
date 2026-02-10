@@ -1,4 +1,5 @@
 using AdvancedDevSample.Domain.Exceptions;
+using System.Text.RegularExpressions;
 
 namespace AdvancedDevSample.Domain.Entities
 {
@@ -15,6 +16,9 @@ namespace AdvancedDevSample.Domain.Entities
         public string LastName { get; private set; }
         public string Role { get; private set; }
         public bool IsActive { get; private set; }
+        
+        // Propriété pour l'authentification JWT
+        public string? PasswordHash { get; private set; }
 
         public User()
         {
@@ -90,6 +94,24 @@ namespace AdvancedDevSample.Domain.Entities
         public void SetActive(bool isActive)
         {
             IsActive = isActive;
+        }
+
+        /// <summary>
+        /// Définit le hash du mot de passe (hashé par BCrypt dans Application layer)
+        /// </summary>
+        public void SetPassword(string passwordHash)
+        {
+            if (string.IsNullOrWhiteSpace(passwordHash))
+                throw new DomainException("Le hash du mot de passe est obligatoire.");
+
+            PasswordHash = passwordHash;
+        }
+
+        private static bool IsValidEmail(string email)
+        {
+            // Expression régulière pour valider un email
+            var emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            return Regex.IsMatch(email, emailPattern);
         }
 
         public string FullName => $"{FirstName} {LastName}";

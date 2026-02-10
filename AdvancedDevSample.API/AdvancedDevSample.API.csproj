@@ -20,7 +20,9 @@
 
     <!-- Ajout de commentaires pour clarifier les dépendances et les configurations du projet -->
     <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.0" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="10.1.0" />
+        <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="10.1.2" />
     </ItemGroup>
 
 </Project>
