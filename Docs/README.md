@@ -4,6 +4,10 @@ Bienvenue dans la documentation du projet **AdvancedDevSample**.
 
 Ce dossier contient tous les documents d'audit, de rapport et de guides relatifs au projet.
 
+## 🚀 Démarrage rapide
+
+**[QUICK_START.md](./QUICK_START.md)** - Guide de démarrage en 5 minutes
+
 ## 📋 Table des matières
 
 ### Audits et Rapports
@@ -63,21 +67,26 @@ Le projet utilise JWT (JSON Web Tokens) pour l'authentification :
    - Structure en couches et principes appliqués
    - Patterns de conception utilisés
 
-9. **[CONTRIBUTING.md](./CONTRIBUTING.md)**
-   - Guide de contribution au projet
-   - Standards de code et conventions
-   - Processus de développement
+9. **[STRUCTURE_PROJET.md](./STRUCTURE_PROJET.md)**
+   - Arborescence complète du projet
+   - Vue d'ensemble des fichiers et dossiers
+   - Statistiques et technologies utilisées
 
-10. **[CHANGELOG.md](./CHANGELOG.md)**
+10. **[CONTRIBUTING.md](./CONTRIBUTING.md)**
+    - Guide de contribution au projet
+    - Standards de code et conventions
+    - Processus de développement
+
+11. **[CHANGELOG.md](./CHANGELOG.md)**
     - Historique des modifications du projet
     - Versions et fonctionnalités ajoutées
 
-11. **[API_DOCUMENTATION.md](./API_DOCUMENTATION.md)**
+12. **[API_DOCUMENTATION.md](./API_DOCUMENTATION.md)**
     - Documentation détaillée des endpoints de l'API
     - Exemples de requêtes et réponses
     - Guide d'utilisation avec Swagger
 
-12. **[ORGANISATION.md](./ORGANISATION.md)**
+13. **[ORGANISATION.md](./ORGANISATION.md)**
     - Organisation de la branche Docs
     - Workflow et standards de documentation
 
