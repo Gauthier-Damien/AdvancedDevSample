@@ -71,7 +71,15 @@ Le projet utilise JWT (JSON Web Tokens) pour l'authentification :
 
 ## 📐 Architecture et Standards
 
-8. **[ARCHITECTURE.md](./ARCHITECTURE.md)**
+8. **[INTEGRATION_SONARCLOUD.md](./INTEGRATION_SONARCLOUD.md)** ⭐ **NOUVEAU**
+   - 📊 Guide complet d'intégration SonarCloud
+   - Configuration GitHub Actions et workflows
+   - Métriques analysées (Bugs, Vulnérabilités, Coverage, Code Smells)
+   - Guide pour le correcteur (accès dashboard, interprétation)
+   - Quality Gates et critères de qualité
+   - Badges en temps réel dans le README
+
+9. **[ARCHITECTURE.md](./ARCHITECTURE.md)**
    - Description détaillée de l'architecture du projet
    - Structure en couches et principes appliqués
    - Patterns de conception utilisés

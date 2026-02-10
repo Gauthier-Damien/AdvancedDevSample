@@ -10,6 +10,7 @@
 
 - **[Architecture détaillée](ARCHITECTURE.md)** - Comprendre la structure du projet
 - **[Structure du projet](STRUCTURE_PROJET.md)** - Arborescence complète
+- **[🆕 Intégration SonarCloud](INTEGRATION_SONARCLOUD.md)** - Analyse qualité du code
 
 ## 🔐 Authentification JWT
 
