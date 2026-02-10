@@ -85,7 +85,7 @@ public class ProductServiceTests
         Assert.NotEqual(Guid.Empty, result.Id);
         Assert.Equal("New Product", result.Name);
         Assert.Equal(99.99m, result.Price);
-        Assert.True((bool)result.IsActive);
+        Assert.True(result.IsActive);
     }
 
     [Fact]
@@ -171,7 +171,7 @@ public class ProductServiceTests
         var result = _service.ToggleProductStatus(product.Id, false);
         
 
-        Assert.False((bool)result.IsActive);
+        Assert.False(result.IsActive);
     }
 
     [Fact]
@@ -187,7 +187,7 @@ public class ProductServiceTests
 
         var savedProduct = _fakeRepository.GetByID(product.Id);
         Assert.NotNull(savedProduct);
-        Assert.False((bool)savedProduct.IsActive);
+        Assert.False(savedProduct.IsActive);
     }
 
     [Fact]
@@ -200,7 +200,7 @@ public class ProductServiceTests
         Assert.Equal("Produit non trouvé", exception.Message);
     }
 
-    private Product CreateTestProduct(string name, decimal price, bool isActive)
+    private static Product CreateTestProduct(string name, decimal price, bool isActive)
     {
         var product = new Product(
             Guid.NewGuid(),
