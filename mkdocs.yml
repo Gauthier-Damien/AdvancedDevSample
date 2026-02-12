@@ -1,0 +1,86 @@
+site_name: AdvancedDevSample - Documentation
+site_description: Documentation complète du projet AdvancedDevSample - Clean Architecture avec .NET 9.0
+site_author: Gauthier Damien
+site_url: https://github.com/Gauthier-Damien/AdvancedDevSample
+
+repo_name: Gauthier-Damien/AdvancedDevSample
+repo_url: https://github.com/Gauthier-Damien/AdvancedDevSample
+edit_uri: edit/Docs/docs/
+
+theme:
+  name: material
+  language: fr
+  palette:
+    - scheme: default
+      primary: deep purple
+      accent: purple
+      toggle:
+        icon: material/brightness-7
+        name: Mode sombre
+    - scheme: slate
+      primary: deep purple
+      accent: purple
+      toggle:
+        icon: material/brightness-4
+        name: Mode clair
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+
+plugins:
+  - search:
+      lang: fr
+  - mermaid2
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - Accueil: index.md
+  - Démarrage rapide: getting-started.md
+  - Architecture:
+    - Vue d'ensemble: architecture/index.md
+  - Domain (Métier):
+    - Vue d'ensemble: domain/index.md
+  - Application (Services):
+    - Vue d'ensemble: application/index.md
+  - API (Controllers):
+    - Vue d'ensemble: api/index.md
+  - Infrastructure (Persistance):
+    - Vue d'ensemble: infrastructure/index.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Gauthier-Damien/AdvancedDevSample
