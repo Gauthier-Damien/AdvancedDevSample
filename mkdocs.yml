@@ -68,40 +68,19 @@ markdown_extensions:
 
 nav:
   - Accueil: index.md
-  - Démarrage Rapide:
-    - Installation: getting-started/installation.md
-    - Premier démarrage: getting-started/quick-start.md
-    - Tests avec Swagger: getting-started/swagger-testing.md
+  - Démarrage rapide: getting-started.md
   - Architecture:
-    - Vue d'ensemble: architecture/overview.md
-    - Clean Architecture: architecture/clean-architecture.md
-    - Couche Domain: architecture/domain-layer.md
-    - Couche Application: architecture/application-layer.md
-    - Couche Infrastructure: architecture/infrastructure-layer.md
-    - Couche API: architecture/api-layer.md
-  - API Documentation:
-    - Authentification: api/authentication.md
-    - Endpoints Products: api/products.md
-    - Endpoints Orders: api/orders.md
-    - Endpoints Users: api/users.md
-    - Endpoints Suppliers: api/suppliers.md
-  - Guides:
-    - Tests JWT: guides/jwt-testing.md
-    - Tests unitaires: guides/unit-testing.md
-    - Tests d'intégration: guides/integration-testing.md
-    - Contribution: guides/contributing.md
-  - Qualité & CI/CD:
-    - SonarCloud: quality/sonarcloud.md
-    - GitHub Actions: quality/github-actions.md
-    - Review SonarQube: quality/sonarqube-review.md
-  - Audits:
-    - Audit complet 2026: audits/audit-2026.md
-    - Synthèse: audits/synthese.md
-    - Historique: audits/history.md
+    - Vue d'ensemble: architecture/index.md
+  - Domain (Métier):
+    - Vue d'ensemble: domain/index.md
+  - Application (Services):
+    - Vue d'ensemble: application/index.md
+  - API (Controllers):
+    - Vue d'ensemble: api/index.md
+  - Infrastructure (Persistance):
+    - Vue d'ensemble: infrastructure/index.md
 
 extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/Gauthier-Damien/AdvancedDevSample
-  version:
-    provider: mike
