@@ -1,0 +1,2682 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation complète du projet AdvancedDevSample - Clean Architecture avec .NET 9.0">
+      
+      
+        <meta name="author" content="Gauthier Damien">
+      
+      
+        <link rel="canonical" href="https://github.com/Gauthier-Damien/AdvancedDevSample/application/">
+      
+      
+        <link rel="prev" href="../domain/">
+      
+      
+        <link rel="next" href="../api/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Vue d'ensemble - AdvancedDevSample - Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#couche-application-services-et-dtos" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href=".." title="AdvancedDevSample - Documentation" class="md-header__button md-logo" aria-label="AdvancedDevSample - Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AdvancedDevSample - Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Vue d'ensemble
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="purple"  aria-label="Mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="purple"  aria-label="Mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Gauthier-Damien/AdvancedDevSample" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Gauthier-Damien/AdvancedDevSample
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Accueil
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../getting-started/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Démarrage rapide
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../architecture/" class="md-tabs__link">
+          
+  
+  
+  Architecture
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../domain/" class="md-tabs__link">
+          
+  
+  
+  Domain (Métier)
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Application (Services)
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../api/" class="md-tabs__link">
+          
+  
+  
+  API (Controllers)
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../infrastructure/" class="md-tabs__link">
+          
+  
+  
+  Infrastructure (Persistance)
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="AdvancedDevSample - Documentation" class="md-nav__button md-logo" aria-label="AdvancedDevSample - Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AdvancedDevSample - Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Gauthier-Damien/AdvancedDevSample" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Gauthier-Damien/AdvancedDevSample
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Démarrage rapide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vue d'ensemble
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Domain (Métier)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Domain (Métier)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../domain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vue d'ensemble
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Application (Services)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Application (Services)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vue d'ensemble
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vue d'ensemble
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#vue-densemble" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 Vue d'ensemble
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#responsabilites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Responsabilités
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📦 Services
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📦 Services">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#productservice-gestion-du-catalogue-produit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ProductService - Gestion du catalogue produit
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ProductService - Gestion du catalogue produit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getallproducts-ienumerableproductresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetAllProducts() : IEnumerable&lt;ProductResponse&gt;
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getproductbyidguid-id-productresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetProductById(Guid id) : ProductResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#createproductcreateproductrequest-productresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CreateProduct(CreateProductRequest) : ProductResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changeproductpriceguid-id-decimal-newprice-productresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ChangeProductPrice(Guid id, decimal newPrice) : ProductResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applydiscountguid-id-decimal-percentage-productresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ApplyDiscount(Guid id, decimal percentage) : ProductResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#toggleproductstatusguid-id-bool-isactive-productresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ToggleProductStatus(Guid id, bool isActive) : ProductResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deleteproductguid-id-void" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DeleteProduct(Guid id) : void
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#orderservice-gestion-des-commandes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OrderService - Gestion des commandes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OrderService - Gestion des commandes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getallorders-ienumerableorderresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetAllOrders() : IEnumerable&lt;OrderResponse&gt;
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getordersbycustomerguid-customerid-ienumerableorderresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetOrdersByCustomer(Guid customerId) : IEnumerable&lt;OrderResponse&gt;
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getorderbyidguid-id-orderresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetOrderById(Guid id) : OrderResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#createordercreateorderrequest-orderresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CreateOrder(CreateOrderRequest) : OrderResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updateordertotalsguid-id-updateordertotalsrequest-orderresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UpdateOrderTotals(Guid id, UpdateOrderTotalsRequest) : OrderResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confirmorderguid-id-orderresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ConfirmOrder(Guid id) : OrderResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shiporderguid-id-orderresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ShipOrder(Guid id) : OrderResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deliverorderguid-id-orderresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DeliverOrder(Guid id) : OrderResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cancelorderguid-id-orderresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CancelOrder(Guid id) : OrderResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#userservice-gestion-des-utilisateurs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UserService - Gestion des utilisateurs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UserService - Gestion des utilisateurs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getallusers-ienumerableuserresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetAllUsers() : IEnumerable&lt;UserResponse&gt;
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getuserbyidguid-id-userresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetUserById(Guid id) : UserResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#createusercreateuserrequest-userresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CreateUser(CreateUserRequest) : UserResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updateuserguid-id-updateuserrequest-userresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UpdateUser(Guid id, UpdateUserRequest) : UserResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deleteuserguid-id-void" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DeleteUser(Guid id) : void
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#supplierservice-gestion-des-fournisseurs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SupplierService - Gestion des fournisseurs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SupplierService - Gestion des fournisseurs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getallsuppliers-ienumerablesupplierresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetAllSuppliers() : IEnumerable&lt;SupplierResponse&gt;
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getsupplierbyidguid-id-supplierresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetSupplierById(Guid id) : SupplierResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#createsuppliercreatesupplierrequest-supplierresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CreateSupplier(CreateSupplierRequest) : SupplierResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updatesupplierguid-id-updatesupplierrequest-supplierresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UpdateSupplier(Guid id, UpdateSupplierRequest) : SupplierResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deletesupplierguid-id-void" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DeleteSupplier(Guid id) : void
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authservice-authentification-jwt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AuthService - Authentification JWT
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AuthService - Authentification JWT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loginloginrequest-loginresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Login(LoginRequest) : LoginResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refreshtokenrefreshtokenrequest-loginresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RefreshToken(RefreshTokenRequest) : LoginResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dtos-data-transfer-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 DTOs (Data Transfer Objects)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📋 DTOs (Data Transfer Objects)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#principes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemples-de-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemples de validation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exemples de validation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#createproductrequest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CreateProductRequest
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loginrequest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LoginRequest
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#orderresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OrderResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gestion-des-erreurs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ Gestion des erreurs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚠️ Gestion des erreurs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#applicationserviceexception" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ApplicationServiceException
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conversion-des-exceptions-domain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conversion des exceptions Domain
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧪 Tests
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonnes-pratiques-appliquees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Bonnes pratiques appliquées
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Bonnes pratiques appliquées">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-separation-requestresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Séparation Request/Response
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-validation-declarative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Validation déclarative
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-mapping-explicite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Mapping explicite
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-gestion-derreurs-coherente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Gestion d'erreurs cohérente
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-injection-de-dependances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Injection de dépendances
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API (Controllers)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    API (Controllers)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vue d'ensemble
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Infrastructure (Persistance)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Infrastructure (Persistance)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infrastructure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vue d'ensemble
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#vue-densemble" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 Vue d'ensemble
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#responsabilites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Responsabilités
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📦 Services
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📦 Services">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#productservice-gestion-du-catalogue-produit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ProductService - Gestion du catalogue produit
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ProductService - Gestion du catalogue produit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getallproducts-ienumerableproductresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetAllProducts() : IEnumerable&lt;ProductResponse&gt;
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getproductbyidguid-id-productresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetProductById(Guid id) : ProductResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#createproductcreateproductrequest-productresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CreateProduct(CreateProductRequest) : ProductResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changeproductpriceguid-id-decimal-newprice-productresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ChangeProductPrice(Guid id, decimal newPrice) : ProductResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applydiscountguid-id-decimal-percentage-productresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ApplyDiscount(Guid id, decimal percentage) : ProductResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#toggleproductstatusguid-id-bool-isactive-productresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ToggleProductStatus(Guid id, bool isActive) : ProductResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deleteproductguid-id-void" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DeleteProduct(Guid id) : void
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#orderservice-gestion-des-commandes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OrderService - Gestion des commandes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OrderService - Gestion des commandes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getallorders-ienumerableorderresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetAllOrders() : IEnumerable&lt;OrderResponse&gt;
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getordersbycustomerguid-customerid-ienumerableorderresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetOrdersByCustomer(Guid customerId) : IEnumerable&lt;OrderResponse&gt;
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getorderbyidguid-id-orderresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetOrderById(Guid id) : OrderResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#createordercreateorderrequest-orderresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CreateOrder(CreateOrderRequest) : OrderResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updateordertotalsguid-id-updateordertotalsrequest-orderresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UpdateOrderTotals(Guid id, UpdateOrderTotalsRequest) : OrderResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confirmorderguid-id-orderresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ConfirmOrder(Guid id) : OrderResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shiporderguid-id-orderresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ShipOrder(Guid id) : OrderResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deliverorderguid-id-orderresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DeliverOrder(Guid id) : OrderResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cancelorderguid-id-orderresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CancelOrder(Guid id) : OrderResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#userservice-gestion-des-utilisateurs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UserService - Gestion des utilisateurs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UserService - Gestion des utilisateurs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getallusers-ienumerableuserresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetAllUsers() : IEnumerable&lt;UserResponse&gt;
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getuserbyidguid-id-userresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetUserById(Guid id) : UserResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#createusercreateuserrequest-userresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CreateUser(CreateUserRequest) : UserResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updateuserguid-id-updateuserrequest-userresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UpdateUser(Guid id, UpdateUserRequest) : UserResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deleteuserguid-id-void" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DeleteUser(Guid id) : void
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#supplierservice-gestion-des-fournisseurs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SupplierService - Gestion des fournisseurs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SupplierService - Gestion des fournisseurs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getallsuppliers-ienumerablesupplierresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetAllSuppliers() : IEnumerable&lt;SupplierResponse&gt;
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getsupplierbyidguid-id-supplierresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GetSupplierById(Guid id) : SupplierResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#createsuppliercreatesupplierrequest-supplierresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CreateSupplier(CreateSupplierRequest) : SupplierResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updatesupplierguid-id-updatesupplierrequest-supplierresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UpdateSupplier(Guid id, UpdateSupplierRequest) : SupplierResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deletesupplierguid-id-void" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DeleteSupplier(Guid id) : void
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authservice-authentification-jwt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AuthService - Authentification JWT
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AuthService - Authentification JWT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loginloginrequest-loginresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Login(LoginRequest) : LoginResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refreshtokenrefreshtokenrequest-loginresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RefreshToken(RefreshTokenRequest) : LoginResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dtos-data-transfer-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 DTOs (Data Transfer Objects)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📋 DTOs (Data Transfer Objects)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#principes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemples-de-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemples de validation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exemples de validation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#createproductrequest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CreateProductRequest
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loginrequest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LoginRequest
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#orderresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OrderResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gestion-des-erreurs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ Gestion des erreurs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚠️ Gestion des erreurs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#applicationserviceexception" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ApplicationServiceException
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conversion-des-exceptions-domain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conversion des exceptions Domain
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧪 Tests
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonnes-pratiques-appliquees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Bonnes pratiques appliquées
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Bonnes pratiques appliquées">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-separation-requestresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Séparation Request/Response
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-validation-declarative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Validation déclarative
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-mapping-explicite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Mapping explicite
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-gestion-derreurs-coherente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Gestion d'erreurs cohérente
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-injection-de-dependances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Injection de dépendances
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="couche-application-services-et-dtos">Couche Application - Services et DTOs<a class="headerlink" href="#couche-application-services-et-dtos" title="Permanent link">&para;</a></h1>
+<h2 id="vue-densemble">📋 Vue d'ensemble<a class="headerlink" href="#vue-densemble" title="Permanent link">&para;</a></h2>
+<p>La couche Application orchestre les cas d'usage de l'application. Elle coordonne les entités du Domain et transforme les données entre les DTOs et les entités métier.</p>
+<h2 id="responsabilites">🎯 Responsabilités<a class="headerlink" href="#responsabilites" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Orchestration</strong> : Coordonne les appels aux entités et repositories</li>
+<li><strong>Transformation</strong> : Convertit DTO ↔ Entité Domain</li>
+<li><strong>Validation</strong> : Valide les données d'entrée (Data Annotations)</li>
+<li><strong>Gestion d'erreurs</strong> : Capture et transforme les exceptions Domain</li>
+</ul>
+<h2 id="services">📦 Services<a class="headerlink" href="#services" title="Permanent link">&para;</a></h2>
+<h3 id="productservice-gestion-du-catalogue-produit">ProductService - Gestion du catalogue produit<a class="headerlink" href="#productservice-gestion-du-catalogue-produit" title="Permanent link">&para;</a></h3>
+<p><strong>Responsabilité :</strong> Orchestration des opérations CRUD sur les produits.</p>
+<p><strong>Méthodes principales :</strong></p>
+<h4 id="getallproducts-ienumerableproductresponse"><code>GetAllProducts() : IEnumerable&lt;ProductResponse&gt;</code><a class="headerlink" href="#getallproducts-ienumerableproductresponse" title="Permanent link">&para;</a></h4>
+<p>Récupère tous les produits actifs du catalogue.</p>
+<h4 id="getproductbyidguid-id-productresponse"><code>GetProductById(Guid id) : ProductResponse</code><a class="headerlink" href="#getproductbyidguid-id-productresponse" title="Permanent link">&para;</a></h4>
+<p>Récupère un produit par son identifiant.</p>
+<p><strong>Exceptions :</strong>
+- <code>ApplicationServiceException</code> (404) si le produit n'existe pas</p>
+<h4 id="createproductcreateproductrequest-productresponse"><code>CreateProduct(CreateProductRequest) : ProductResponse</code><a class="headerlink" href="#createproductcreateproductrequest-productresponse" title="Permanent link">&para;</a></h4>
+<p>Crée un nouveau produit dans le catalogue.</p>
+<p><strong>Validation DTO :</strong>
+- Name : requis, max 200 caractères
+- Description : max 1000 caractères
+- Price : &gt; 0
+- VATRate : entre 0 et 100</p>
+<h4 id="changeproductpriceguid-id-decimal-newprice-productresponse"><code>ChangeProductPrice(Guid id, decimal newPrice) : ProductResponse</code><a class="headerlink" href="#changeproductpriceguid-id-decimal-newprice-productresponse" title="Permanent link">&para;</a></h4>
+<p>Modifie le prix d'un produit existant.</p>
+<p><strong>Règles métier appliquées :</strong>
+- Le nouveau prix doit être &gt; 0 (validé par le Domain)</p>
+<h4 id="applydiscountguid-id-decimal-percentage-productresponse"><code>ApplyDiscount(Guid id, decimal percentage) : ProductResponse</code><a class="headerlink" href="#applydiscountguid-id-decimal-percentage-productresponse" title="Permanent link">&para;</a></h4>
+<p>Applique une réduction en pourcentage sur le prix.</p>
+<p><strong>Règles métier appliquées :</strong>
+- Le pourcentage doit être entre 0 et 100
+- Le prix final doit rester &gt; 0</p>
+<h4 id="toggleproductstatusguid-id-bool-isactive-productresponse"><code>ToggleProductStatus(Guid id, bool isActive) : ProductResponse</code><a class="headerlink" href="#toggleproductstatusguid-id-bool-isactive-productresponse" title="Permanent link">&para;</a></h4>
+<p>Active ou désactive un produit.</p>
+<h4 id="deleteproductguid-id-void"><code>DeleteProduct(Guid id) : void</code><a class="headerlink" href="#deleteproductguid-id-void" title="Permanent link">&para;</a></h4>
+<p>Suppression logique (soft delete) : désactive le produit au lieu de le supprimer.</p>
+<hr />
+<h3 id="orderservice-gestion-des-commandes">OrderService - Gestion des commandes<a class="headerlink" href="#orderservice-gestion-des-commandes" title="Permanent link">&para;</a></h3>
+<p><strong>Responsabilité :</strong> Orchestration du cycle de vie des commandes avec machine à états.</p>
+<p><strong>Méthodes principales :</strong></p>
+<h4 id="getallorders-ienumerableorderresponse"><code>GetAllOrders() : IEnumerable&lt;OrderResponse&gt;</code><a class="headerlink" href="#getallorders-ienumerableorderresponse" title="Permanent link">&para;</a></h4>
+<p>Récupère toutes les commandes.</p>
+<h4 id="getordersbycustomerguid-customerid-ienumerableorderresponse"><code>GetOrdersByCustomer(Guid customerId) : IEnumerable&lt;OrderResponse&gt;</code><a class="headerlink" href="#getordersbycustomerguid-customerid-ienumerableorderresponse" title="Permanent link">&para;</a></h4>
+<p>Récupère les commandes d'un client spécifique.</p>
+<h4 id="getorderbyidguid-id-orderresponse"><code>GetOrderById(Guid id) : OrderResponse</code><a class="headerlink" href="#getorderbyidguid-id-orderresponse" title="Permanent link">&para;</a></h4>
+<p>Récupère une commande par son identifiant.</p>
+<h4 id="createordercreateorderrequest-orderresponse"><code>CreateOrder(CreateOrderRequest) : OrderResponse</code><a class="headerlink" href="#createordercreateorderrequest-orderresponse" title="Permanent link">&para;</a></h4>
+<p>Crée une nouvelle commande avec le statut "Pending".</p>
+<p><strong>Validation DTO :</strong>
+- CustomerId : requis
+- DeliveryAddress : requis, max 500 caractères
+- Notes : optionnel, max 1000 caractères</p>
+<h4 id="updateordertotalsguid-id-updateordertotalsrequest-orderresponse"><code>UpdateOrderTotals(Guid id, UpdateOrderTotalsRequest) : OrderResponse</code><a class="headerlink" href="#updateordertotalsguid-id-updateordertotalsrequest-orderresponse" title="Permanent link">&para;</a></h4>
+<p>Met à jour les montants HT et TTC de la commande.</p>
+<p><strong>Règles métier appliquées :</strong>
+- Montant HT ≥ 0
+- Montant TTC ≥ Montant HT
+- Impossible si la commande est annulée</p>
+<h4 id="confirmorderguid-id-orderresponse"><code>ConfirmOrder(Guid id) : OrderResponse</code><a class="headerlink" href="#confirmorderguid-id-orderresponse" title="Permanent link">&para;</a></h4>
+<p><strong>Transition</strong> : Pending → Confirmed</p>
+<p><strong>Règles métier appliquées :</strong>
+- Le statut actuel doit être "Pending"
+- Le montant doit être &gt; 0</p>
+<h4 id="shiporderguid-id-orderresponse"><code>ShipOrder(Guid id) : OrderResponse</code><a class="headerlink" href="#shiporderguid-id-orderresponse" title="Permanent link">&para;</a></h4>
+<p><strong>Transition</strong> : Confirmed → Shipped</p>
+<p><strong>Règles métier appliquées :</strong>
+- Le statut actuel doit être "Confirmed"</p>
+<h4 id="deliverorderguid-id-orderresponse"><code>DeliverOrder(Guid id) : OrderResponse</code><a class="headerlink" href="#deliverorderguid-id-orderresponse" title="Permanent link">&para;</a></h4>
+<p><strong>Transition</strong> : Shipped → Delivered</p>
+<p><strong>Règles métier appliquées :</strong>
+- Le statut actuel doit être "Shipped"</p>
+<h4 id="cancelorderguid-id-orderresponse"><code>CancelOrder(Guid id) : OrderResponse</code><a class="headerlink" href="#cancelorderguid-id-orderresponse" title="Permanent link">&para;</a></h4>
+<p><strong>Transition</strong> : Pending/Confirmed → Cancelled</p>
+<p><strong>Règles métier appliquées :</strong>
+- Impossible si la commande est expédiée ou livrée</p>
+<hr />
+<h3 id="userservice-gestion-des-utilisateurs">UserService - Gestion des utilisateurs<a class="headerlink" href="#userservice-gestion-des-utilisateurs" title="Permanent link">&para;</a></h3>
+<p><strong>Responsabilité :</strong> CRUD complet sur les utilisateurs du système.</p>
+<p><strong>Méthodes principales :</strong></p>
+<h4 id="getallusers-ienumerableuserresponse"><code>GetAllUsers() : IEnumerable&lt;UserResponse&gt;</code><a class="headerlink" href="#getallusers-ienumerableuserresponse" title="Permanent link">&para;</a></h4>
+<p>Récupère tous les utilisateurs actifs.</p>
+<h4 id="getuserbyidguid-id-userresponse"><code>GetUserById(Guid id) : UserResponse</code><a class="headerlink" href="#getuserbyidguid-id-userresponse" title="Permanent link">&para;</a></h4>
+<p>Récupère un utilisateur par son identifiant.</p>
+<h4 id="createusercreateuserrequest-userresponse"><code>CreateUser(CreateUserRequest) : UserResponse</code><a class="headerlink" href="#createusercreateuserrequest-userresponse" title="Permanent link">&para;</a></h4>
+<p>Crée un nouvel utilisateur.</p>
+<p><strong>Validation DTO :</strong>
+- Username : requis, max 50 caractères
+- Email : requis, format email
+- FirstName : requis, max 100 caractères
+- LastName : requis, max 100 caractères
+- Role : optionnel (par défaut "User")</p>
+<h4 id="updateuserguid-id-updateuserrequest-userresponse"><code>UpdateUser(Guid id, UpdateUserRequest) : UserResponse</code><a class="headerlink" href="#updateuserguid-id-updateuserrequest-userresponse" title="Permanent link">&para;</a></h4>
+<p>Met à jour les informations d'un utilisateur.</p>
+<h4 id="deleteuserguid-id-void"><code>DeleteUser(Guid id) : void</code><a class="headerlink" href="#deleteuserguid-id-void" title="Permanent link">&para;</a></h4>
+<p>Suppression logique : désactive l'utilisateur.</p>
+<hr />
+<h3 id="supplierservice-gestion-des-fournisseurs">SupplierService - Gestion des fournisseurs<a class="headerlink" href="#supplierservice-gestion-des-fournisseurs" title="Permanent link">&para;</a></h3>
+<p><strong>Responsabilité :</strong> CRUD complet sur les fournisseurs.</p>
+<p><strong>Méthodes principales :</strong></p>
+<h4 id="getallsuppliers-ienumerablesupplierresponse"><code>GetAllSuppliers() : IEnumerable&lt;SupplierResponse&gt;</code><a class="headerlink" href="#getallsuppliers-ienumerablesupplierresponse" title="Permanent link">&para;</a></h4>
+<p>Récupère tous les fournisseurs actifs.</p>
+<h4 id="getsupplierbyidguid-id-supplierresponse"><code>GetSupplierById(Guid id) : SupplierResponse</code><a class="headerlink" href="#getsupplierbyidguid-id-supplierresponse" title="Permanent link">&para;</a></h4>
+<p>Récupère un fournisseur par son identifiant.</p>
+<h4 id="createsuppliercreatesupplierrequest-supplierresponse"><code>CreateSupplier(CreateSupplierRequest) : SupplierResponse</code><a class="headerlink" href="#createsuppliercreatesupplierrequest-supplierresponse" title="Permanent link">&para;</a></h4>
+<p>Crée un nouveau fournisseur.</p>
+<p><strong>Validation DTO :</strong>
+- Name : requis, max 200 caractères
+- Email : requis, format email
+- PhoneNumber : optionnel, max 20 caractères
+- Address : optionnel, max 500 caractères</p>
+<h4 id="updatesupplierguid-id-updatesupplierrequest-supplierresponse"><code>UpdateSupplier(Guid id, UpdateSupplierRequest) : SupplierResponse</code><a class="headerlink" href="#updatesupplierguid-id-updatesupplierrequest-supplierresponse" title="Permanent link">&para;</a></h4>
+<p>Met à jour les informations d'un fournisseur.</p>
+<h4 id="deletesupplierguid-id-void"><code>DeleteSupplier(Guid id) : void</code><a class="headerlink" href="#deletesupplierguid-id-void" title="Permanent link">&para;</a></h4>
+<p>Suppression logique : désactive le fournisseur.</p>
+<hr />
+<h3 id="authservice-authentification-jwt">AuthService - Authentification JWT<a class="headerlink" href="#authservice-authentification-jwt" title="Permanent link">&para;</a></h3>
+<p><strong>Responsabilité :</strong> Gestion de l'authentification et des tokens JWT.</p>
+<p><strong>Méthodes principales :</strong></p>
+<h4 id="loginloginrequest-loginresponse"><code>Login(LoginRequest) : LoginResponse</code><a class="headerlink" href="#loginloginrequest-loginresponse" title="Permanent link">&para;</a></h4>
+<p>Authentifie un utilisateur et génère un token d'accès JWT.</p>
+<p><strong>Processus :</strong>
+1. Récupère l'utilisateur par username
+2. Vérifie le mot de passe avec BCrypt
+3. Vérifie que le compte est actif
+4. Génère un access token (JWT) et un refresh token
+5. Sauvegarde le refresh token en base
+6. Retourne les tokens et les informations utilisateur</p>
+<p><strong>Validation DTO :</strong>
+- Username : requis
+- Password : requis</p>
+<p><strong>Exceptions :</strong>
+- <code>ApplicationServiceException</code> (401) si les identifiants sont invalides
+- <code>ApplicationServiceException</code> (403) si le compte est désactivé</p>
+<p><strong>Claims JWT générés :</strong>
+- <code>NameIdentifier</code> : Id de l'utilisateur
+- <code>Name</code> : Username
+- <code>Email</code> : Email de l'utilisateur
+- <code>Role</code> : Rôle (Student, Admin, User)
+- <code>FullName</code> : Prénom + Nom</p>
+<h4 id="refreshtokenrefreshtokenrequest-loginresponse"><code>RefreshToken(RefreshTokenRequest) : LoginResponse</code><a class="headerlink" href="#refreshtokenrefreshtokenrequest-loginresponse" title="Permanent link">&para;</a></h4>
+<p>Rafraîchit un access token expiré avec un refresh token valide.</p>
+<p><strong>Processus :</strong>
+1. Récupère le refresh token
+2. Vérifie qu'il est valide (non expiré, non révoqué)
+3. Récupère l'utilisateur associé
+4. Révoque l'ancien refresh token
+5. Génère de nouveaux tokens
+6. Retourne les nouveaux tokens</p>
+<p><strong>Validation DTO :</strong>
+- RefreshToken : requis</p>
+<p><strong>Exceptions :</strong>
+- <code>ApplicationServiceException</code> (401) si le refresh token est invalide ou expiré</p>
+<p><strong>Configuration JWT :</strong>
+- Secret : Défini dans appsettings.json
+- Issuer : AdvancedDevSample
+- Audience : AdvancedDevSample-Users
+- Expiration access token : 60 minutes (configurable)
+- Expiration refresh token : 7 jours (configurable)</p>
+<hr />
+<h2 id="dtos-data-transfer-objects">📋 DTOs (Data Transfer Objects)<a class="headerlink" href="#dtos-data-transfer-objects" title="Permanent link">&para;</a></h2>
+<h3 id="principes">Principes<a class="headerlink" href="#principes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Séparation Request/Response</li>
+<li>Validation avec Data Annotations</li>
+<li>Propriétés publiques pour binding</li>
+</ul>
+<h3 id="structure">Structure<a class="headerlink" href="#structure" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>DTOs/
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── Auth/
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│   ├── LoginRequest.cs
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│   ├── LoginResponse.cs
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│   └── RefreshTokenRequest.cs
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>├── Products/
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>│   ├── CreateProductRequest.cs
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>│   ├── ProductResponse.cs
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>│   ├── ChangePriceRequest.cs
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>│   ├── ApplyDiscountRequest.cs
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>│   └── ToggleProductStatusRequest.cs
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>├── Orders/
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>│   ├── CreateOrderRequest.cs
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>│   ├── OrderResponse.cs
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>│   └── UpdateOrderTotalsRequest.cs
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>├── Users/
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>│   ├── CreateUserRequest.cs
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>│   ├── UpdateUserRequest.cs
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>│   └── UserResponse.cs
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>└── Suppliers/
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>    ├── CreateSupplierRequest.cs
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>    ├── UpdateSupplierRequest.cs
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>    └── SupplierResponse.cs
+</code></pre></div>
+<h3 id="exemples-de-validation">Exemples de validation<a class="headerlink" href="#exemples-de-validation" title="Permanent link">&para;</a></h3>
+<h4 id="createproductrequest">CreateProductRequest<a class="headerlink" href="#createproductrequest" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">CreateProductRequest</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="na">[Required(ErrorMessage = &quot;Le nom est obligatoire&quot;)]</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="na">[MaxLength(200)]</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Name</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="na">[MaxLength(1000)]</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Description</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="na">[Required]</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="na">[Range(0.01, double.MaxValue, ErrorMessage = &quot;Le prix doit être supérieur à 0&quot;)]</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="n">Price</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span><span class="na">[Required]</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="na">[Range(0, 100, ErrorMessage = &quot;Le taux de TVA doit être entre 0 et 100&quot;)]</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="n">VATRate</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="p">}</span>
+</code></pre></div>
+<h4 id="loginrequest">LoginRequest<a class="headerlink" href="#loginrequest" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">LoginRequest</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="na">[Required(ErrorMessage = &quot;Le nom d&#39;utilisateur est obligatoire&quot;)]</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Username</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="na">[Required(ErrorMessage = &quot;Le mot de passe est obligatoire&quot;)]</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Password</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">}</span>
+</code></pre></div>
+<h4 id="orderresponse">OrderResponse<a class="headerlink" href="#orderresponse" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">OrderResponse</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Guid</span><span class="w"> </span><span class="n">Id</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">OrderNumber</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">DateTime</span><span class="w"> </span><span class="n">OrderDate</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Guid</span><span class="w"> </span><span class="n">CustomerId</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="n">TotalAmountExcludingTax</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="n">TotalAmountIncludingTax</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">OrderStatus</span><span class="w"> </span><span class="n">Status</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">StatusLabel</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// ToString() du Status</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">DeliveryAddress</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Notes</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="gestion-des-erreurs">⚠️ Gestion des erreurs<a class="headerlink" href="#gestion-des-erreurs" title="Permanent link">&para;</a></h2>
+<h3 id="applicationserviceexception">ApplicationServiceException<a class="headerlink" href="#applicationserviceexception" title="Permanent link">&para;</a></h3>
+<p>Exception levée par la couche Application pour les erreurs applicatives.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ApplicationServiceException</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Exception</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">HttpStatusCode</span><span class="w"> </span><span class="n">StatusCode</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">ApplicationServiceException</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">message</span><span class="p">,</span><span class="w"> </span><span class="n">HttpStatusCode</span><span class="w"> </span><span class="n">statusCode</span><span class="p">)</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">        </span><span class="p">:</span><span class="w"> </span><span class="k">base</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">        </span><span class="n">StatusCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">statusCode</span><span class="p">;</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong>Codes HTTP utilisés :</strong>
+- <code>404 Not Found</code> : Ressource non trouvée
+- <code>401 Unauthorized</code> : Authentification échouée
+- <code>403 Forbidden</code> : Compte désactivé
+- <code>400 Bad Request</code> : Données invalides (via ModelState)</p>
+<h3 id="conversion-des-exceptions-domain">Conversion des exceptions Domain<a class="headerlink" href="#conversion-des-exceptions-domain" title="Permanent link">&para;</a></h3>
+<p>Les services capturent les <code>DomainException</code> et les convertissent en <code>ApplicationServiceException</code> avec le code HTTP approprié.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">try</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="p">{</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="n">product</span><span class="p">.</span><span class="n">UpdatePrice</span><span class="p">(</span><span class="n">newPrice</span><span class="p">);</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="p">}</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">DomainException</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="p">{</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">ApplicationServiceException</span><span class="p">(</span><span class="n">ex</span><span class="p">.</span><span class="n">Message</span><span class="p">,</span><span class="w"> </span><span class="n">HttpStatusCode</span><span class="p">.</span><span class="n">BadRequest</span><span class="p">);</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="tests">🧪 Tests<a class="headerlink" href="#tests" title="Permanent link">&para;</a></h2>
+<p>Tous les services sont couverts par des tests unitaires avec des repositories fake (in-memory).</p>
+<p><strong>Exemples de tests :</strong>
+- <code>ProductServiceTests.cs</code> : 15+ tests
+- <code>OrderServiceTests.cs</code> : 20+ tests
+- <code>UserServiceTests.cs</code> : 10+ tests
+- <code>SupplierServiceTests.cs</code> : 10+ tests</p>
+<p><strong>Pattern de test :</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="na">[Fact]</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CreateProduct_Should_Create_And_Return_Product</span><span class="p">()</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="p">{</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="c1">// Arrange</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CreateProductRequest</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">        </span><span class="n">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Test Product&quot;</span><span class="p">,</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">        </span><span class="n">Price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">99.99m</span><span class="p">,</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">        </span><span class="n">VATRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="p">};</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">    </span><span class="c1">// Act</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_productService</span><span class="p">.</span><span class="n">CreateProduct</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">    </span><span class="c1">// Assert</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">    </span><span class="n">Assert</span><span class="p">.</span><span class="n">NotNull</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">    </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">&quot;Test Product&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">.</span><span class="n">Name</span><span class="p">);</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="w">    </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="mf">99.99m</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">.</span><span class="n">Price</span><span class="p">);</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h2 id="bonnes-pratiques-appliquees">🎯 Bonnes pratiques appliquées<a class="headerlink" href="#bonnes-pratiques-appliquees" title="Permanent link">&para;</a></h2>
+<h3 id="1-separation-requestresponse">1. Séparation Request/Response<a class="headerlink" href="#1-separation-requestresponse" title="Permanent link">&para;</a></h3>
+<p>Pas de réutilisation des DTOs entre requêtes et réponses.</p>
+<h3 id="2-validation-declarative">2. Validation déclarative<a class="headerlink" href="#2-validation-declarative" title="Permanent link">&para;</a></h3>
+<p>Utilisation de Data Annotations pour la validation.</p>
+<h3 id="3-mapping-explicite">3. Mapping explicite<a class="headerlink" href="#3-mapping-explicite" title="Permanent link">&para;</a></h3>
+<p>Méthodes privées <code>MapToResponse()</code> pour la conversion.</p>
+<h3 id="4-gestion-derreurs-coherente">4. Gestion d'erreurs cohérente<a class="headerlink" href="#4-gestion-derreurs-coherente" title="Permanent link">&para;</a></h3>
+<p>Toutes les erreurs passent par <code>ApplicationServiceException</code>.</p>
+<h3 id="5-injection-de-dependances">5. Injection de dépendances<a class="headerlink" href="#5-injection-de-dependances" title="Permanent link">&para;</a></h3>
+<p>Les repositories sont injectés via le constructeur.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Gauthier-Damien/AdvancedDevSample" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

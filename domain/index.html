@@ -1,0 +1,1899 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation complète du projet AdvancedDevSample - Clean Architecture avec .NET 9.0">
+      
+      
+        <meta name="author" content="Gauthier Damien">
+      
+      
+        <link rel="canonical" href="https://github.com/Gauthier-Damien/AdvancedDevSample/domain/">
+      
+      
+        <link rel="prev" href="../architecture/">
+      
+      
+        <link rel="next" href="../application/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Vue d'ensemble - AdvancedDevSample - Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#couche-domain-entites-et-regles-metier" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href=".." title="AdvancedDevSample - Documentation" class="md-header__button md-logo" aria-label="AdvancedDevSample - Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AdvancedDevSample - Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Vue d'ensemble
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="purple"  aria-label="Mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="purple"  aria-label="Mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Gauthier-Damien/AdvancedDevSample" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Gauthier-Damien/AdvancedDevSample
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Accueil
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../getting-started/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Démarrage rapide
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../architecture/" class="md-tabs__link">
+          
+  
+  
+  Architecture
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Domain (Métier)
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../application/" class="md-tabs__link">
+          
+  
+  
+  Application (Services)
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../api/" class="md-tabs__link">
+          
+  
+  
+  API (Controllers)
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../infrastructure/" class="md-tabs__link">
+          
+  
+  
+  Infrastructure (Persistance)
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="AdvancedDevSample - Documentation" class="md-nav__button md-logo" aria-label="AdvancedDevSample - Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AdvancedDevSample - Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Gauthier-Damien/AdvancedDevSample" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Gauthier-Damien/AdvancedDevSample
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Démarrage rapide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vue d'ensemble
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Domain (Métier)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Domain (Métier)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vue d'ensemble
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vue d'ensemble
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#vue-densemble" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 Vue d'ensemble
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#principes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Principes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📦 Entités
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📦 Entités">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#product-produit-du-catalogue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Product - Produit du catalogue
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#order-commande-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Order - Commande client
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-utilisateur-du-systeme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User - Utilisateur du système
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#supplier-fournisseur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supplier - Fournisseur
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refreshtoken-token-de-rafraichissement-jwt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RefreshToken - Token de rafraîchissement JWT
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interfaces-des-repositories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔧 Interfaces des Repositories
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 Interfaces des Repositories">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iproductrepository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IProductRepository
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iorderrepository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IOrderRepository
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iuserrepository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IUserRepository
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#isupplierrepository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ISupplierRepository
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iauthrepository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IAuthRepository
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exceptions-metier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ Exceptions métier
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚠️ Exceptions métier">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#domainexception" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DomainException
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonnes-pratiques-appliquees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Bonnes pratiques appliquées
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Bonnes pratiques appliquées">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-encapsulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Encapsulation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-constructeurs-validants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Constructeurs validants
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-methodes-metier-explicites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Méthodes métier explicites
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-immutabilite-des-value-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Immutabilité des Value Objects
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diagramme-de-classes-simplifie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📊 Diagramme de classes simplifié
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧪 Tests
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Application (Services)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Application (Services)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../application/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vue d'ensemble
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API (Controllers)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    API (Controllers)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vue d'ensemble
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Infrastructure (Persistance)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Infrastructure (Persistance)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../infrastructure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vue d'ensemble
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#vue-densemble" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 Vue d'ensemble
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#principes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Principes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📦 Entités
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📦 Entités">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#product-produit-du-catalogue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Product - Produit du catalogue
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#order-commande-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Order - Commande client
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-utilisateur-du-systeme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User - Utilisateur du système
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#supplier-fournisseur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supplier - Fournisseur
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refreshtoken-token-de-rafraichissement-jwt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RefreshToken - Token de rafraîchissement JWT
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interfaces-des-repositories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔧 Interfaces des Repositories
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 Interfaces des Repositories">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iproductrepository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IProductRepository
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iorderrepository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IOrderRepository
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iuserrepository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IUserRepository
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#isupplierrepository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ISupplierRepository
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iauthrepository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IAuthRepository
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exceptions-metier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ Exceptions métier
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚠️ Exceptions métier">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#domainexception" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DomainException
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonnes-pratiques-appliquees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Bonnes pratiques appliquées
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Bonnes pratiques appliquées">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-encapsulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Encapsulation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-constructeurs-validants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Constructeurs validants
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-methodes-metier-explicites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Méthodes métier explicites
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-immutabilite-des-value-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Immutabilité des Value Objects
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diagramme-de-classes-simplifie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📊 Diagramme de classes simplifié
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧪 Tests
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="couche-domain-entites-et-regles-metier">Couche Domain - Entités et règles métier<a class="headerlink" href="#couche-domain-entites-et-regles-metier" title="Permanent link">&para;</a></h1>
+<h2 id="vue-densemble">📋 Vue d'ensemble<a class="headerlink" href="#vue-densemble" title="Permanent link">&para;</a></h2>
+<p>La couche Domain contient le cœur métier de l'application. Elle définit les entités, les règles de gestion et les invariants qui doivent toujours être respectés.</p>
+<h2 id="principes">🎯 Principes<a class="headerlink" href="#principes" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Aucune dépendance externe</strong> : Le Domain ne dépend d'aucune autre couche</li>
+<li><strong>Règles métier encapsulées</strong> : Toute la logique métier est dans les entités</li>
+<li><strong>Invariants protégés</strong> : Les propriétés sont <code>private set</code> pour garantir la cohérence</li>
+<li><strong>Exceptions métier</strong> : Utilisation de <code>DomainException</code> pour les violations de règles</li>
+</ul>
+<h2 id="entites">📦 Entités<a class="headerlink" href="#entites" title="Permanent link">&para;</a></h2>
+<h3 id="product-produit-du-catalogue">Product - Produit du catalogue<a class="headerlink" href="#product-produit-du-catalogue" title="Permanent link">&para;</a></h3>
+<p><strong>Responsabilité :</strong> Gestion d'un produit du catalogue avec validation du prix.</p>
+<p><strong>Propriétés :</strong>
+- <code>Id</code> : Identifiant unique
+- <code>Name</code> : Nom du produit
+- <code>Description</code> : Description détaillée
+- <code>Price</code> : Prix unitaire (doit être &gt; 0)
+- <code>VATRate</code> : Taux de TVA (entre 0 et 100%)
+- <code>IsActive</code> : Statut actif/inactif
+- <code>SupplierId</code> : Lien vers le fournisseur (optionnel)</p>
+<p><strong>Invariants métier :</strong>
+- Le prix doit toujours être strictement positif
+- Le taux de TVA doit être entre 0 et 100%</p>
+<p><strong>Méthodes métier :</strong>
+- <code>UpdatePrice(decimal newPrice)</code> : Modifie le prix avec validation
+- <code>ApplyDiscount(decimal percentage)</code> : Applique une réduction
+- <code>ChangeIsActive(bool newState)</code> : Active/désactive le produit
+- <code>AssignSupplier(Guid supplierId)</code> : Associe un fournisseur
+- <code>RemoveSupplier()</code> : Retire le fournisseur</p>
+<hr />
+<h3 id="order-commande-client">Order - Commande client<a class="headerlink" href="#order-commande-client" title="Permanent link">&para;</a></h3>
+<p><strong>Responsabilité :</strong> Gestion du cycle de vie d'une commande avec machine à états.</p>
+<p><strong>Propriétés :</strong>
+- <code>Id</code> : Identifiant unique
+- <code>OrderNumber</code> : Numéro de commande généré
+- <code>OrderDate</code> : Date de création
+- <code>CustomerId</code> : Identifiant du client
+- <code>TotalAmountExcludingTax</code> : Montant HT
+- <code>TotalAmountIncludingTax</code> : Montant TTC
+- <code>Status</code> : Statut de la commande
+- <code>DeliveryAddress</code> : Adresse de livraison
+- <code>Notes</code> : Notes complémentaires</p>
+<p><strong>Statuts possibles :</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">public</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">OrderStatus</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="n">Pending</span><span class="p">,</span><span class="w">    </span><span class="c1">// En attente</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="n">Confirmed</span><span class="p">,</span><span class="w">  </span><span class="c1">// Confirmée</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="n">Shipped</span><span class="p">,</span><span class="w">    </span><span class="c1">// Expédiée</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="n">Delivered</span><span class="p">,</span><span class="w">  </span><span class="c1">// Livrée</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="n">Cancelled</span><span class="w">   </span><span class="c1">// Annulée</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">}</span>
+</code></pre></div></p>
+<p><strong>Machine à états - Transitions autorisées :</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Pending → Confirmed → Shipped → Delivered
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    ↓
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Cancelled (uniquement si non expédiée)
+</code></pre></div></p>
+<p><strong>Invariants métier :</strong>
+- Une commande doit avoir un client
+- Une commande doit avoir une adresse de livraison
+- Le montant TTC doit être ≥ montant HT
+- Les transitions de statut doivent respecter le workflow</p>
+<p><strong>Méthodes métier :</strong>
+- <code>Confirm()</code> : Pending → Confirmed (si montant &gt; 0)
+- <code>Ship()</code> : Confirmed → Shipped
+- <code>Deliver()</code> : Shipped → Delivered
+- <code>Cancel()</code> : Annulation (impossible si expédiée ou livrée)
+- <code>UpdateTotals(decimal ht, decimal ttc)</code> : Mise à jour des montants
+- <code>UpdateDeliveryAddress(string address)</code> : Modifie l'adresse (si non expédiée)</p>
+<hr />
+<h3 id="user-utilisateur-du-systeme">User - Utilisateur du système<a class="headerlink" href="#user-utilisateur-du-systeme" title="Permanent link">&para;</a></h3>
+<p><strong>Responsabilité :</strong> Gestion d'un utilisateur avec authentification.</p>
+<p><strong>Propriétés :</strong>
+- <code>Id</code> : Identifiant unique
+- <code>Username</code> : Nom d'utilisateur unique
+- <code>Email</code> : Adresse email
+- <code>FirstName</code> : Prénom
+- <code>LastName</code> : Nom de famille
+- <code>Role</code> : Rôle (Student, Admin, User)
+- <code>IsActive</code> : Compte actif/inactif
+- <code>PasswordHash</code> : Hash BCrypt du mot de passe</p>
+<p><strong>Propriété calculée :</strong>
+- <code>FullName</code> : Retourne <code>FirstName + " " + LastName</code></p>
+<p><strong>Invariants métier :</strong>
+- Le username est obligatoire
+- L'email est obligatoire et doit contenir "@"
+- Le prénom et le nom sont obligatoires
+- Le rôle est obligatoire (par défaut "User")</p>
+<p><strong>Méthodes métier :</strong>
+- <code>UpdateInfo(username, email, firstName, lastName)</code> : Mise à jour des informations
+- <code>ChangeRole(string newRole)</code> : Modifie le rôle
+- <code>SetActive(bool isActive)</code> : Active/désactive le compte
+- <code>SetPassword(string passwordHash)</code> : Définit le hash du mot de passe</p>
+<hr />
+<h3 id="supplier-fournisseur">Supplier - Fournisseur<a class="headerlink" href="#supplier-fournisseur" title="Permanent link">&para;</a></h3>
+<p><strong>Responsabilité :</strong> Gestion d'un fournisseur avec validation des coordonnées.</p>
+<p><strong>Propriétés :</strong>
+- <code>Id</code> : Identifiant unique
+- <code>Name</code> : Nom du fournisseur
+- <code>Email</code> : Adresse email
+- <code>PhoneNumber</code> : Numéro de téléphone
+- <code>Address</code> : Adresse postale
+- <code>IsActive</code> : Statut actif/inactif</p>
+<p><strong>Invariants métier :</strong>
+- Le nom est obligatoire
+- L'email est obligatoire et doit contenir "@"</p>
+<p><strong>Méthodes métier :</strong>
+- <code>UpdateInfo(name, email, phone, address)</code> : Mise à jour complète
+- <code>SetActive(bool isActive)</code> : Active/désactive le fournisseur</p>
+<hr />
+<h3 id="refreshtoken-token-de-rafraichissement-jwt">RefreshToken - Token de rafraîchissement JWT<a class="headerlink" href="#refreshtoken-token-de-rafraichissement-jwt" title="Permanent link">&para;</a></h3>
+<p><strong>Responsabilité :</strong> Gestion des refresh tokens pour l'authentification JWT.</p>
+<p><strong>Propriétés :</strong>
+- <code>Id</code> : Identifiant unique
+- <code>UserId</code> : Identifiant de l'utilisateur
+- <code>Token</code> : Token de rafraîchissement
+- <code>ExpiresAt</code> : Date d'expiration
+- <code>CreatedAt</code> : Date de création
+- <code>RevokedAt</code> : Date de révocation (nullable)
+- <code>RevokedReason</code> : Raison de la révocation</p>
+<p><strong>Méthodes métier :</strong>
+- <code>IsValid()</code> : Vérifie si le token est valide (non expiré et non révoqué)
+- <code>Revoke(string reason)</code> : Révoque le token</p>
+<h2 id="interfaces-des-repositories">🔧 Interfaces des Repositories<a class="headerlink" href="#interfaces-des-repositories" title="Permanent link">&para;</a></h2>
+<p>Le Domain définit les contrats que l'Infrastructure doit implémenter.</p>
+<h3 id="iproductrepository">IProductRepository<a class="headerlink" href="#iproductrepository" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">public</span><span class="w"> </span><span class="k">interface</span><span class="w"> </span><span class="n">IProductRepository</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="n">Product</span><span class="o">&gt;</span><span class="w"> </span><span class="n">GetAll</span><span class="p">();</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="n">Product</span><span class="o">?</span><span class="w"> </span><span class="n">GetByID</span><span class="p">(</span><span class="n">Guid</span><span class="w"> </span><span class="n">id</span><span class="p">);</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="k">void</span><span class="w"> </span><span class="nf">Save</span><span class="p">(</span><span class="n">Product</span><span class="w"> </span><span class="n">product</span><span class="p">);</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="k">void</span><span class="w"> </span><span class="nf">Delete</span><span class="p">(</span><span class="n">Guid</span><span class="w"> </span><span class="n">id</span><span class="p">);</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="iorderrepository">IOrderRepository<a class="headerlink" href="#iorderrepository" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">public</span><span class="w"> </span><span class="k">interface</span><span class="w"> </span><span class="n">IOrderRepository</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="n">Order</span><span class="o">&gt;</span><span class="w"> </span><span class="n">GetAll</span><span class="p">();</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="n">Order</span><span class="o">&gt;</span><span class="w"> </span><span class="n">GetByCustomerId</span><span class="p">(</span><span class="n">Guid</span><span class="w"> </span><span class="n">customerId</span><span class="p">);</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="n">Order</span><span class="o">?</span><span class="w"> </span><span class="n">GetByID</span><span class="p">(</span><span class="n">Guid</span><span class="w"> </span><span class="n">id</span><span class="p">);</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="k">void</span><span class="w"> </span><span class="nf">Save</span><span class="p">(</span><span class="n">Order</span><span class="w"> </span><span class="n">order</span><span class="p">);</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="k">void</span><span class="w"> </span><span class="nf">Delete</span><span class="p">(</span><span class="n">Guid</span><span class="w"> </span><span class="n">id</span><span class="p">);</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="iuserrepository">IUserRepository<a class="headerlink" href="#iuserrepository" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">public</span><span class="w"> </span><span class="k">interface</span><span class="w"> </span><span class="n">IUserRepository</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span><span class="w"> </span><span class="n">GetAll</span><span class="p">();</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="n">User</span><span class="o">?</span><span class="w"> </span><span class="n">GetByID</span><span class="p">(</span><span class="n">Guid</span><span class="w"> </span><span class="n">id</span><span class="p">);</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="n">User</span><span class="o">?</span><span class="w"> </span><span class="n">GetByUsername</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">username</span><span class="p">);</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="k">void</span><span class="w"> </span><span class="nf">Save</span><span class="p">(</span><span class="n">User</span><span class="w"> </span><span class="n">user</span><span class="p">);</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="k">void</span><span class="w"> </span><span class="nf">Delete</span><span class="p">(</span><span class="n">Guid</span><span class="w"> </span><span class="n">id</span><span class="p">);</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="isupplierrepository">ISupplierRepository<a class="headerlink" href="#isupplierrepository" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">public</span><span class="w"> </span><span class="k">interface</span><span class="w"> </span><span class="n">ISupplierRepository</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="p">{</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="n">Supplier</span><span class="o">&gt;</span><span class="w"> </span><span class="n">GetAll</span><span class="p">();</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="n">Supplier</span><span class="o">?</span><span class="w"> </span><span class="n">GetByID</span><span class="p">(</span><span class="n">Guid</span><span class="w"> </span><span class="n">id</span><span class="p">);</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="k">void</span><span class="w"> </span><span class="nf">Save</span><span class="p">(</span><span class="n">Supplier</span><span class="w"> </span><span class="n">supplier</span><span class="p">);</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="k">void</span><span class="w"> </span><span class="nf">Delete</span><span class="p">(</span><span class="n">Guid</span><span class="w"> </span><span class="n">id</span><span class="p">);</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="iauthrepository">IAuthRepository<a class="headerlink" href="#iauthrepository" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">public</span><span class="w"> </span><span class="k">interface</span><span class="w"> </span><span class="n">IAuthRepository</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="p">{</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="n">User</span><span class="o">?</span><span class="w"> </span><span class="n">GetUserByUsername</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">username</span><span class="p">);</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="k">void</span><span class="w"> </span><span class="nf">SaveRefreshToken</span><span class="p">(</span><span class="n">RefreshToken</span><span class="w"> </span><span class="n">refreshToken</span><span class="p">);</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="n">RefreshToken</span><span class="o">?</span><span class="w"> </span><span class="n">GetRefreshToken</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">token</span><span class="p">);</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="k">void</span><span class="w"> </span><span class="nf">SeedUser</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">username</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">password</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">role</span><span class="p">);</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="exceptions-metier">⚠️ Exceptions métier<a class="headerlink" href="#exceptions-metier" title="Permanent link">&para;</a></h2>
+<h3 id="domainexception">DomainException<a class="headerlink" href="#domainexception" title="Permanent link">&para;</a></h3>
+<p>Utilisée pour signaler une violation de règle métier.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">DomainException</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Exception</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="p">{</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">DomainException</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">message</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">base</span><span class="p">(</span><span class="n">message</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong>Exemples d'utilisation :</strong>
+- Prix négatif ou nul
+- Email invalide
+- Transition de statut non autorisée
+- Données obligatoires manquantes</p>
+<h2 id="bonnes-pratiques-appliquees">🎯 Bonnes pratiques appliquées<a class="headerlink" href="#bonnes-pratiques-appliquees" title="Permanent link">&para;</a></h2>
+<h3 id="1-encapsulation">1. Encapsulation<a class="headerlink" href="#1-encapsulation" title="Permanent link">&para;</a></h3>
+<p>Les propriétés sont <code>private set</code> pour empêcher les modifications directes.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">public</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="n">Price</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<h3 id="2-constructeurs-validants">2. Constructeurs validants<a class="headerlink" href="#2-constructeurs-validants" title="Permanent link">&para;</a></h3>
+<p>Tous les constructeurs valident les invariants.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">public</span><span class="w"> </span><span class="nf">Product</span><span class="p">(</span><span class="n">Guid</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="kt">decimal</span><span class="w"> </span><span class="n">price</span><span class="p">)</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="p">{</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">price</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">DomainException</span><span class="p">(</span><span class="s">&quot;Le prix doit être strictement positif.&quot;</span><span class="p">);</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">    </span><span class="n">Id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">    </span><span class="n">Price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">price</span><span class="p">;</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="3-methodes-metier-explicites">3. Méthodes métier explicites<a class="headerlink" href="#3-methodes-metier-explicites" title="Permanent link">&para;</a></h3>
+<p>Les modifications passent par des méthodes métier nommées.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">UpdatePrice</span><span class="p">(</span><span class="kt">decimal</span><span class="w"> </span><span class="n">newPrice</span><span class="p">)</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="p">{</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">newPrice</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">DomainException</span><span class="p">(</span><span class="s">&quot;Le prix doit être strictement positif.&quot;</span><span class="p">);</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="n">Price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newPrice</span><span class="p">;</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="4-immutabilite-des-value-objects">4. Immutabilité des Value Objects<a class="headerlink" href="#4-immutabilite-des-value-objects" title="Permanent link">&para;</a></h3>
+<p>Les objets-valeurs sont immuables (création par constructeur uniquement).</p>
+<h2 id="diagramme-de-classes-simplifie">📊 Diagramme de classes simplifié<a class="headerlink" href="#diagramme-de-classes-simplifie" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>┌─────────────┐
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>│   Product   │
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>├─────────────┤
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>│ - Id        │
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>│ - Price     │
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>│ - Name      │
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>└──────┬──────┘
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>       │
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>       │ 0..1
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>       ▼
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>┌─────────────┐
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>│  Supplier   │
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>├─────────────┤
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>│ - Id        │
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>│ - Name      │
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>│ - Email     │
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>└─────────────┘
+<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>
+<a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>┌─────────────┐      ┌─────────────┐
+<a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>│    Order    │──────│    User     │
+<a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a>├─────────────┤ n  1 ├─────────────┤
+<a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a>│ - Id        │      │ - Id        │
+<a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a>│ - Status    │      │ - Username  │
+<a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a>│ - Total     │      │ - Role      │
+<a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a>└─────────────┘      └─────────────┘
+</code></pre></div>
+<h2 id="tests">🧪 Tests<a class="headerlink" href="#tests" title="Permanent link">&para;</a></h2>
+<p>Tous les invariants et règles métier sont couverts par des tests unitaires :</p>
+<ul>
+<li><code>ProductTests.cs</code> : 20+ tests</li>
+<li><code>OrderTests.cs</code> : 30+ tests  </li>
+<li><code>UserTests.cs</code> : 15+ tests</li>
+<li><code>SupplierTests.cs</code> : 15+ tests</li>
+</ul>
+<p><strong>Exemple de test :</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="na">[Fact]</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">UpdatePrice_Should_Throw_Exception_When_Price_Is_Negative</span><span class="p">()</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="p">{</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">product</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Product</span><span class="p">(</span><span class="n">Guid</span><span class="p">.</span><span class="n">NewGuid</span><span class="p">(),</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="k">true</span><span class="p">);</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">exception</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Assert</span><span class="p">.</span><span class="n">Throws</span><span class="o">&lt;</span><span class="n">DomainException</span><span class="o">&gt;</span><span class="p">(()</span><span class="w"> </span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">        </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">product</span><span class="p">.</span><span class="n">UpdatePrice</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">));</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">    </span><span class="n">Assert</span><span class="p">.</span><span class="n">Equal</span><span class="p">(</span><span class="s">&quot;Le prix doit être strictement positif.&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">exception</span><span class="p">.</span><span class="n">Message</span><span class="p">);</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="p">}</span>
+</code></pre></div></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Gauthier-Damien/AdvancedDevSample" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
