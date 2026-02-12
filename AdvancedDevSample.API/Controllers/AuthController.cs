@@ -77,7 +77,7 @@ namespace AdvancedDevSample.API.Controllers
         /// <response code="401">Non authentifié</response>
         [HttpGet("me")]
         [Authorize]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(object), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public IActionResult GetCurrentUser()
         {

@@ -6,3 +6,14 @@ riderModule.iml
 .idea/
 .vs/
 
+# MkDocs
+site/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Temporary files
+temp_files_list.txt
