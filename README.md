@@ -152,19 +152,6 @@ La documentation technique complète est disponible sur **GitHub Pages** :
 - 💼 **Application** - Services et DTOs
 - 🌐 **API** - Endpoints REST et authentification
 - 🗄️ **Infrastructure** - Repositories et persistance
-
----
-
-## 🤝 Contribution
-
-Les contributions sont les bienvenues ! Pour contribuer :
-
-1. Fork le projet
-2. Créez une branche (`git checkout -b feature/amazing-feature`)
-3. Committez vos changements (`git commit -m 'Add amazing feature'`)
-4. Push vers la branche (`git push origin feature/amazing-feature`)
-5. Ouvrez une Pull Request
-
 ---
 
 ## 📄 Licence
@@ -300,10 +287,6 @@ dotnet clean
 
 ---
 
-## 🤝 Contribution
-
-Les contributions sont les bienvenues !
-
 ### Workflow
 
 1. Fork le projet
@@ -311,28 +294,6 @@ Les contributions sont les bienvenues !
 3. Commit les changements (`git commit -m 'feat: add amazing feature'`)
 4. Push vers la branche (`git push origin feature/AmazingFeature`)
 5. Ouvrir une Pull Request
-
----
-
-## 📄 License
-
-Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
-
----
-
-## 👤 Auteur
-
-**Gautier Damien**
-
-- GitHub: [@Gauthier-Damien](https://github.com/Gauthier-Damien)
-- Repository: [AdvancedDevSample](https://github.com/Gauthier-Damien/AdvancedDevSample)
-
----
-
-## 🔗 Liens utiles
-
-- 🐙 **[Repository GitHub](https://github.com/Gauthier-Damien/AdvancedDevSample)**
-- 📊 **[Swagger UI](https://localhost:5181/swagger)** (après `dotnet run`)
 
 ---
 
