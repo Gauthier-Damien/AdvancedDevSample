@@ -1,26 +1,18 @@
 # AdvancedDevSample
 
 [![.NET](https://img.shields.io/badge/.NET-9.0-purple)](https://dotnet.microsoft.com/)
-[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![Build and Test](https://github.com/Gauthier-Damien/AdvancedDevSample/actions/workflows/build.yml/badge.svg)](https://github.com/Gauthier-Damien/AdvancedDevSample/actions/workflows/build.yml)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Gauthier-Damien_AdvancedDevSample&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Gauthier-Damien_AdvancedDevSample)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Gauthier-Damien_AdvancedDevSample&metric=coverage)](https://sonarcloud.io/summary/new_code?id=Gauthier-Damien_AdvancedDevSample)
 
-Application de gestion de catalogue produits développée avec une **architecture Clean Code** et les principes **Domain-Driven Design (DDD)**.
+API RESTful de gestion de commandes, produits, utilisateurs et fournisseurs développée avec **ASP.NET Core 9.0** et une **architecture Clean Architecture** (DDD).
 
 ---
 
-## 🌳 Branches du projet
+## 📚 Documentation
 
-Ce projet utilise une organisation en branches pour séparer le code de la documentation :
-
-- **`master`** - Branche principale de production
-- **`Codding`** - Branche de développement du code
-- **`Docs`** - Branche dédiée à la documentation complète
-
-📚 **Pour accéder à la documentation complète**, basculez sur la branche `Docs` :
-```bash
-git checkout Docs
-cd Docs
-# Consultez README.md ou INDEX.md pour naviguer
-```
+📖 **Documentation complète disponible sur GitHub Pages :**  
+👉 **[https://gauthier-damien.github.io/AdvancedDevSample/](https://gauthier-damien.github.io/AdvancedDevSample/)**
 
 ---
 
@@ -42,63 +34,55 @@ cd AdvancedDevSample
 # Restaurer les dépendances
 dotnet restore
 
-# Compiler la solution
-dotnet build
-
 # Lancer l'API
 cd AdvancedDevSample.API
 dotnet run
 ```
 
-### Accès à l'API
+### Accès
 
-Une fois l'API lancée :
+Une fois l'API lancée, accédez à :
 
-- **Swagger UI** : `https://localhost:5181/swagger`
-- **API** : `https://localhost:5181/api`
+- **Swagger UI** : https://localhost:7000/swagger
+- **API** : https://localhost:7000/api
+
+### Comptes de démonstration
+
+- **Étudiant** : `demo` / `demo123`
+- **Administrateur** : `admin` / `admin123`
 
 ---
 
-## 📦 Fonctionnalités
+## ✨ Fonctionnalités
 
-### Catalogue produits
-
-- ✅ Liste des produits
-- ✅ Afficher les informations produit
-- ✅ Modifier les prix
-- ✅ Appliquer des promotions
-- ✅ Activer/Désactiver un produit
-
-### Gestion
-
-- 📦 **Produits** - CRUD complet
-- 🏢 **Fournisseurs** - Gestion des fournisseurs
-- 👥 **Utilisateurs** - Base utilisateurs
-- 📋 **Commandes** - Système de commandes avec lignes de détail
+- 🔐 **Authentification JWT** - Login, refresh token, gestion des rôles
+- 📦 **Gestion des produits** - CRUD, modification de prix, réductions, soft delete
+- 📋 **Gestion des commandes** - Machine à états (Pending → Confirmed → Shipped → Delivered)
+- 👥 **Gestion des utilisateurs** - CRUD, activation/désactivation des comptes
+- 🏢 **Gestion des fournisseurs** - CRUD complet avec validation
 
 ---
 
 ## 🏗️ Architecture
 
-Le projet suit une **architecture Clean Code** avec séparation stricte des responsabilités :
+Le projet implémente une **Clean Architecture** avec 4 couches :
 
 ```
 AdvancedDevSample/
-├── AdvancedDevSample.API/          # Couche Présentation (Controllers, Middlewares)
-├── AdvancedDevSample.Application/  # Couche Application (Services, DTOs)
-├── AdvancedDevSample.Domain/       # Couche Domain (Entités, Règles métier)
-├── AdvancedDevSample.Infrastructure/ # Couche Infrastructure (Repositories)
-└── AdvancedDevSample.Test/         # Tests unitaires et d'intégration
+├── AdvancedDevSample.API/          # 🌐 Présentation (Controllers, Middlewares)
+├── AdvancedDevSample.Application/  # 💼 Application (Services, DTOs)
+├── AdvancedDevSample.Domain/       # 🎯 Domain (Entités, Règles métier)
+├── AdvancedDevSample.Infrastructure/ # 🗄️ Infrastructure (Repositories)
+└── AdvancedDevSample.Test/         # 🧪 Tests (137 tests unitaires)
 ```
 
-### Principes
+### Principes appliqués
 
-- ✅ **Separation of Concerns** - Chaque couche a une responsabilité claire
-- ✅ **Dependency Inversion** - Le Domain ne dépend de rien
+- ✅ **Clean Architecture** - Séparation stricte des responsabilités
+- ✅ **Domain-Driven Design** - Logique métier dans le Domain
+- ✅ **Dependency Inversion** - Interfaces dans Domain, implémentations dans Infrastructure
 - ✅ **Repository Pattern** - Abstraction de la persistance
-- ✅ **CQRS** - Séparation lecture/écriture (DTOs)
-
-**Pour plus de détails** : [Architecture complète →](https://Gauthier-Damien.github.io/AdvancedDevSample/architecture/overview/)
+- ✅ **SOLID Principles** - Code maintenable et extensible
 
 ---
 
@@ -106,148 +90,91 @@ AdvancedDevSample/
 
 | Couche | Technologies |
 |--------|-------------|
-| **API** | ASP.NET Core 9.0, Swagger/OpenAPI |
-| **Application** | Services, DTOs, Mapping |
-| **Domain** | Entités, Value Objects, Interfaces |
-| **Infrastructure** | Repositories (In-Memory actuellement) |
-| **Tests** | xUnit, Moq |
+| **API** | ASP.NET Core 9.0, Swagger/OpenAPI, JWT Authentication |
+| **Application** | Services, Data Annotations, BCrypt |
+| **Domain** | Entités, Value Objects, DomainException |
+| **Infrastructure** | Repository Pattern (InMemory) |
+| **Tests** | xUnit (137 tests), Fake Repositories |
 
 ---
 
 ## 🧪 Tests
 
-### Lancer les tests
+### Exécuter les tests
 
 ```bash
 # Tous les tests
 dotnet test
 
-# Tests avec couverture
+# Avec couverture de code
 dotnet test --collect:"XPlat Code Coverage"
-
-# Tests d'un projet spécifique
-dotnet test AdvancedDevSample.Test/AdvancedDevSample.Test.csproj
 ```
 
 ### Couverture
 
-- ✅ **Tests unitaires** - Domain, Application
-- ✅ **Tests d'intégration** - API, Controllers
-- ✅ **Mocking** - Repositories avec Moq
+- ✅ **137 tests unitaires** (100% de réussite)
+- ✅ **Domain** - Tests des entités et règles métier
+- ✅ **Application** - Tests des services
+- ✅ **API** - Tests des contrôleurs
+- ✅ **Couverture > 80%**
 
 ---
 
-## 📋 Règles métier
+## 📊 Qualité du code
 
-### Produits
-
-- ✅ Le **prix** doit être **strictement positif**
-- ✅ Un produit doit toujours avoir un **prix valide**
-- ✅ La **TVA** doit être valide (entre 0 et 100%)
-
-### Commandes
-
-- ✅ Une commande doit contenir **au moins une ligne**
-- ✅ Les **quantités** doivent être positives
-- ✅ Les **prix unitaires** doivent être strictement positifs
-
-# AdvancedDevSample
-
-[![.NET](https://img.shields.io/badge/.NET-9.0-purple)](https://dotnet.microsoft.com/)
-[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-[![Build and Test](https://github.com/Gauthier-Damien/AdvancedDevSample/actions/workflows/build.yml/badge.svg)](https://github.com/Gauthier-Damien/AdvancedDevSample/actions/workflows/build.yml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Gauthier-Damien_AdvancedDevSample&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Gauthier-Damien_AdvancedDevSample)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Gauthier-Damien_AdvancedDevSample&metric=coverage)](https://sonarcloud.io/summary/new_code?id=Gauthier-Damien_AdvancedDevSample)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=Gauthier-Damien_AdvancedDevSample&metric=bugs)](https://sonarcloud.io/summary/new_code?id=Gauthier-Damien_AdvancedDevSample)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=Gauthier-Damien_AdvancedDevSample&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=Gauthier-Damien_AdvancedDevSample)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=Gauthier-Damien_AdvancedDevSample&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=Gauthier-Damien_AdvancedDevSample)
 
-Application de gestion de catalogue produits développée avec une **architecture Clean Code** et les principes **Domain-Driven Design (DDD)**.
+**Analyse SonarQube :**
+- ✅ 0 Bugs
+- ✅ 0 Vulnerabilities  
+- ✅ Quality Gate : Passed
+- ✅ 80% des Code Smells résolus
+
+👉 [Voir l'analyse complète sur SonarCloud](https://sonarcloud.io/project/overview?id=Gauthier-Damien_AdvancedDevSample)
 
 ---
 
-## 🌳 Branches du projet
+## 📖 Documentation
 
-### Prérequis
+La documentation technique complète est disponible sur **GitHub Pages** :
 
-- [.NET 9.0 SDK](https://dotnet.microsoft.com/download)
-- IDE : [Rider](https://www.jetbrains.com/rider/), [Visual Studio 2022](https://visualstudio.microsoft.com/), ou [VS Code](https://code.visualstudio.com/)
+🌐 **[https://gauthier-damien.github.io/AdvancedDevSample/](https://gauthier-damien.github.io/AdvancedDevSample/)**
 
-### Installation
+### Contenu de la documentation
 
-```bash
-# Cloner le repository
-git clone https://github.com/Gauthier-Damien/AdvancedDevSample.git
-cd AdvancedDevSample
+- 🏠 **Vue d'ensemble** - Présentation du projet
+- ⚡ **Démarrage rapide** - Installation et premiers pas
+- 🏗️ **Architecture** - Clean Architecture détaillée
+- 🎯 **Domain** - Entités et règles métier
+- 💼 **Application** - Services et DTOs
+- 🌐 **API** - Endpoints REST et authentification
+- 🗄️ **Infrastructure** - Repositories et persistance
+---
 
-# Restaurer les dépendances
-dotnet restore
+## 📄 Licence
 
-# Compiler la solution
-dotnet build
-
-# Lancer l'API
-cd AdvancedDevSample.API
-dotnet run
-```
-
-### Accès à l'API
-
-Une fois l'API lancée :
-
-- **Swagger UI** : `https://localhost:5181/swagger`
-- **API** : `https://localhost:5181/api`
+Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
 
 ---
 
-## 📦 Fonctionnalités
+## 👨‍💻 Auteur
 
-### Catalogue produits
+**Gauthier Damien**
 
-- ✅ Liste des produits
-- ✅ Afficher les informations produit
-- ✅ Modifier les prix
-- ✅ Appliquer des promotions
-- ✅ Activer/Désactiver un produit
-
-### Gestion
-
-- 📦 **Produits** - CRUD complet
-- 🏢 **Fournisseurs** - Gestion des fournisseurs
-- 👥 **Utilisateurs** - Base utilisateurs
-- 📋 **Commandes** - Système de commandes avec lignes de détail
+- GitHub: [@Gauthier-Damien](https://github.com/Gauthier-Damien)
+- Projet: [AdvancedDevSample](https://github.com/Gauthier-Damien/AdvancedDevSample)
 
 ---
 
-## 🏗️ Architecture
+## 🔗 Liens utiles
 
-Le projet suit une **architecture Clean Code** avec séparation stricte des responsabilités :
-
-```
-AdvancedDevSample/
-├── AdvancedDevSample.API/          # Couche Présentation (Controllers, Middlewares)
-├── AdvancedDevSample.Application/  # Couche Application (Services, DTOs)
-├── AdvancedDevSample.Domain/       # Couche Domain (Entités, Règles métier)
-├── AdvancedDevSample.Infrastructure/ # Couche Infrastructure (Repositories)
-└── AdvancedDevSample.Test/         # Tests unitaires et d'intégration
-```
-
-### Principes
-
-- ✅ **Separation of Concerns** - Chaque couche a une responsabilité claire
-- ✅ **Dependency Inversion** - Le Domain ne dépend de rien
-- ✅ **Repository Pattern** - Abstraction de la persistance
-- ✅ **CQRS** - Séparation lecture/écriture (DTOs)
-
----
-
-## 🔧 Technologies
-
-| Couche | Technologies |
-|--------|-------------|
-| **API** | ASP.NET Core 9.0, Swagger/OpenAPI |
-| **Application** | Services, DTOs, Mapping |
-| **Domain** | Entités, Value Objects, Interfaces |
+- 📖 [Documentation complète](https://gauthier-damien.github.io/AdvancedDevSample/)
+- 🔍 [SonarCloud](https://sonarcloud.io/project/overview?id=Gauthier-Damien_AdvancedDevSample)
+- 🚀 [GitHub Actions](https://github.com/Gauthier-Damien/AdvancedDevSample/actions)
+- 📊 [Releases](https://github.com/Gauthier-Damien/AdvancedDevSample/releases)
 | **Infrastructure** | Repositories (In-Memory actuellement) |
 | **Tests** | xUnit, Moq |
 
@@ -360,10 +287,6 @@ dotnet clean
 
 ---
 
-## 🤝 Contribution
-
-Les contributions sont les bienvenues !
-
 ### Workflow
 
 1. Fork le projet
@@ -371,28 +294,6 @@ Les contributions sont les bienvenues !
 3. Commit les changements (`git commit -m 'feat: add amazing feature'`)
 4. Push vers la branche (`git push origin feature/AmazingFeature`)
 5. Ouvrir une Pull Request
-
----
-
-## 📄 License
-
-Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
-
----
-
-## 👤 Auteur
-
-**Gautier Damien**
-
-- GitHub: [@Gauthier-Damien](https://github.com/Gauthier-Damien)
-- Repository: [AdvancedDevSample](https://github.com/Gauthier-Damien/AdvancedDevSample)
-
----
-
-## 🔗 Liens utiles
-
-- 🐙 **[Repository GitHub](https://github.com/Gauthier-Damien/AdvancedDevSample)**
-- 📊 **[Swagger UI](https://localhost:5181/swagger)** (après `dotnet run`)
 
 ---
 
